@@ -1,7 +1,5 @@
 package conceptosBasicosEjercicios;
 
-import utilidades.Entrada;
-
 public class Ejercicio27_45_size {
 
 	public static void main(String[] args) {
