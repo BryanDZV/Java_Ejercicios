@@ -232,6 +232,16 @@ public class FuncionesConceptos {
 		
 	}
 	
+	//Mostrar contraseña
+	public static String mostrarContraseña(String texto) {
+		String arrayContraseña=null;
+		arrayContraseña= texto;
+		
+		
+		String resultado="su contraseña era:"+arrayContraseña;
+		return resultado;
+	}
+	
 	
 	
 	
