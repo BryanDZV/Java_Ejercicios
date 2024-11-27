@@ -1,5 +1,7 @@
 package conceptosBasicosEjercicios;
 
+import java.time.*;
+
 public class FuncionesConceptos {
 
 	public static void main(String[] args) {
@@ -180,7 +182,7 @@ public class FuncionesConceptos {
 
 		while (par1 <= par2) {
 			if (par1 % 2 == 0) {
-				contadorPares =contadorPares + 1;
+				contadorPares = contadorPares + 1;
 				resultado = resultado + "\n numero par " + par1 + " total pares: " + contadorPares;
 			}
 			par1++;
@@ -190,65 +192,85 @@ public class FuncionesConceptos {
 		return resultado;
 
 	}
-	
-	//Aparacion de subcadena
-	
+
+	// Aparacion de subcadena
+
 	public static String SubcadenaEncontrda(String palabra, String texto) {
-		String resultado="";
-		int posicionPalabra=texto.toUpperCase().indexOf(palabra.toUpperCase());
-		if (posicionPalabra!=-1) {
-			resultado=resultado+"la palabra "+palabra+" empieza en el indice "+posicionPalabra;
-			
+		String resultado = "";
+		int posicionPalabra = texto.toUpperCase().indexOf(palabra.toUpperCase());
+		if (posicionPalabra != -1) {
+			resultado = resultado + "la palabra " + palabra + " empieza en el indice " + posicionPalabra;
+
 		} else {
-			resultado=resultado+"no hay coincidencias";
+			resultado = resultado + "no hay coincidencias";
 
 		}
-		
-		
-		
+
 		return resultado;
-		
+
 	}
-	
-	//COTIENE LA SUBCADENA
-	
+
+	// COTIENE LA SUBCADENA
+
 	public static String EncuentraFrase(String texto, String palabra) {
-		String resultado="";
-		int contadorPalabra=0;
-		
-		
-		if (texto.toUpperCase().contains(palabra.toUpperCase())) {
-			contadorPalabra=+1;
-			resultado=resultado+"El texto tiene la palabra  "+palabra.toLowerCase();
-			
-			
-		} else {
-			resultado="no hay concidencias";
+		String resultado = "";
+		int contadorPalabra = 0;
 
+		if (texto.toUpperCase().contains(palabra.toUpperCase())) {
+			contadorPalabra = +1;
+			resultado = resultado + "El texto tiene la palabra  " + palabra.toLowerCase();
+
+		} else {
+			resultado = "no hay concidencias";
+
+		}
+
+		return resultado;
+
+	}
+
+	// Mostrar contraseña
+	public static String mostrarContraseña(String texto) {
+		String arrayContraseña = null;
+		arrayContraseña = texto;
+
+		String resultado = "su contraseña era:" + arrayContraseña;
+		return resultado;
+	}
+
+	// MOSTRAR HORA
+
+	public static LocalTime mostrarhora() {
+		// hay que usar clase localTime
+		LocalTime hora = LocalTime.now();
+
+		return hora;
+	}
+	
+	//DIVISIBLE POR 2 NUMEROS
+	
+	public static String divisibleMultiple(int par1, int par2) {
+		
+		for (int i = 1; i <= 100; i++) {
+			
+			if (i%3==0) {
+				string [] divi
+			} 
+			if (i%5==0) {
+				
+			}
+			if (i%5==0 && i%3==0) {
+				
+			}
+			
+			
 		}
 		
 		
-		return resultado;
 		
+		
+		return null;
 	}
-	
-	//Mostrar contraseña
-	public static String mostrarContraseña(String texto) {
-		String arrayContraseña=null;
-		arrayContraseña= texto;
-		
-		
-		String resultado="su contraseña era:"+arrayContraseña;
-		return resultado;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 

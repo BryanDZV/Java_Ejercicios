@@ -8,7 +8,7 @@ public class Ejercicio32_42 {
 		//Escriba un programa en Java
 		//para ingresar y mostrar su contraseña.
 
-		System.out.println("inggrese una contraseña");
+		System.out.println("ingrese una contraseña");
 		String texto=Entrada.cadena();
 		System.out.println(FuncionesConceptos.mostrarContraseña(texto));
 		
