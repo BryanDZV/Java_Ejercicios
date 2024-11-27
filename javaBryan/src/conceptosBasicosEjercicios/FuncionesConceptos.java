@@ -237,6 +237,44 @@ public class FuncionesConceptos {
 		String resultado = "su contraseña era:" + arrayContraseña;
 		return resultado;
 	}
+	
+	// la lógica de formateo
+
+	public static String generarTextoFormateado(String parametro) {
+		// Líneas del poema
+		String[] lines = parametro.split(",");
+		// Niveles de indentación para cada línea
+		int[] indentLevels = { 4, 1, 2, 3, 0, 1 };
+		// Construcción del texto formateado
+		StringBuilder formattedText = new StringBuilder();
+		for (int i = 0; i < lines.length; i++) {
+			// Construir el texto con la indentación adecuada
+			for (int j = 0; j < indentLevels[i]; j++) {
+				formattedText.append("\t");
+				// Añadir una tabulación por nivel de indentación
+			}
+			formattedText.append(lines[i]).append("\n");
+		}
+
+		return formattedText.toString();
+	}
+
+	// CADENA (STRING) A ENTERO
+
+	public static  int cadenaToNumero(String parametro) {
+		// coger string y usar metodo to String
+		// parametro<=0 && parametro >=0 usando Stringquesea.matches dev boolean parametro.matches("[0-9]+"  LAVALIDACION LA HAGO EN EL MAIN ME ASEGURO DE 
+		//PASAR A MI METODO LOS DATOS CORRECTOS DESDE EL MAIN EL METODO SOLO HACE
+		int convertidoNum = 0;
+		
+
+		convertidoNum = Integer.parseInt(parametro);
+		return convertidoNum;
+		
+		
+	}
+
+
 
 	// MOSTRAR HORA
 
