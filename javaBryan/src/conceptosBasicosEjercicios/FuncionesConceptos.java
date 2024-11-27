@@ -180,7 +180,7 @@ public class FuncionesConceptos {
 
 		while (par1 <= par2) {
 			if (par1 % 2 == 0) {
-				contadorPares =contadorPares + 1;
+				contadorPares = contadorPares + 1;
 				resultado = resultado + "\n numero par " + par1 + " total pares: " + contadorPares;
 			}
 			par1++;
@@ -190,89 +190,86 @@ public class FuncionesConceptos {
 		return resultado;
 
 	}
-	
-	//Aparacion de subcadena
-	
+
+	// Aparacion de subcadena
+
 	public static String SubcadenaEncontrda(String palabra, String texto) {
-		String resultado="";
-		int posicionPalabra=texto.toUpperCase().indexOf(palabra.toUpperCase());
-		if (posicionPalabra!=-1) {
-			resultado=resultado+"la palabra "+palabra+" empieza en el indice "+posicionPalabra;
-			
+		String resultado = "";
+		int posicionPalabra = texto.toUpperCase().indexOf(palabra.toUpperCase());
+		if (posicionPalabra != -1) {
+			resultado = resultado + "la palabra " + palabra + " empieza en el indice " + posicionPalabra;
+
 		} else {
-			resultado=resultado+"no hay coincidencias";
+			resultado = resultado + "no hay coincidencias";
 
 		}
-		
-		
-		
+
 		return resultado;
-		
+
 	}
-	
-	//COTIENE LA SUBCADENA
-	
+
+	// COTIENE LA SUBCADENA
+
 	public static String EncuentraFrase(String texto, String palabra) {
-		String resultado="";
-		int contadorPalabra=0;
-		
-		
+		String resultado = "";
+		int contadorPalabra = 0;
+
 		if (texto.toUpperCase().contains(palabra.toUpperCase())) {
-			contadorPalabra=+1;
-			resultado=resultado+"El texto tiene la palabra  "+palabra.toLowerCase();
-			
-			
+			contadorPalabra = +1;
+			resultado = resultado + "El texto tiene la palabra  " + palabra.toLowerCase();
+
 		} else {
-			resultado="no hay concidencias";
+			resultado = "no hay concidencias";
 
 		}
-		
-		
+
 		return resultado;
-		
+
 	}
-	
-	//Mostrar contraseña
+
+	// Mostrar contraseña
 	public static String mostrarContraseña(String texto) {
-		String arrayContraseña=null;
-		arrayContraseña= texto;
-		
-		
-		String resultado="su contraseña era:"+arrayContraseña;
+		String arrayContraseña = null;
+		arrayContraseña = texto;
+
+		String resultado = "su contraseña era:" + arrayContraseña;
 		return resultado;
 	}
-	
+
 	// la lógica de formateo
-	
-	public static String generarTextoFormateado(String parametro) { 
-		// Líneas del poema 
+
+	public static String generarTextoFormateado(String parametro) {
+		// Líneas del poema
 		String[] lines = parametro.split(",");
 		// Niveles de indentación para cada línea
-		int[] indentLevels = {4, 1, 2, 3, 0, 1};
-		// Construcción del texto formateado 
+		int[] indentLevels = { 4, 1, 2, 3, 0, 1 };
+		// Construcción del texto formateado
 		StringBuilder formattedText = new StringBuilder();
-		for (int i = 0; i < lines.length; i++) { 
-		// Construir el texto con la indentación adecuada 
+		for (int i = 0; i < lines.length; i++) {
+			// Construir el texto con la indentación adecuada
 			for (int j = 0; j < indentLevels[i]; j++) {
 				formattedText.append("\t");
-			// Añadir una tabulación por nivel de indentación 
+				// Añadir una tabulación por nivel de indentación
 			}
-			formattedText.append(lines[i]).append("\n"); 
-			}
-		
-		return formattedText.toString(); 
+			formattedText.append(lines[i]).append("\n");
 		}
-			
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+		return formattedText.toString();
+	}
+
+	// CADENA (STRING) A ENTERO
+
+	public static  int cadenaToNumero(String parametro) {
+		// coger string y usar metodo to String
+		// parametro<=0 && parametro >=0 usando Stringquesea.matches dev boolean parametro.matches("[0-9]+"  LAVALIDACION LA HAGO EN EL MAIN ME ASEGURO DE 
+		//PASAR A MI METODO LOS DATOS CORRECTOS DESDE EL MAIN EL METODO SOLO HACE
+		int convertidoNum = 0;
+		
+
+		convertidoNum = Integer.parseInt(parametro);
+		return convertidoNum;
+		
+		
+	}
 
 }// clase ENGLOBA A TODAS SIEMPRE
