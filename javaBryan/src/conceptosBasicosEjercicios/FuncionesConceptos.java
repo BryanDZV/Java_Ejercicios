@@ -254,7 +254,7 @@ public class FuncionesConceptos {
 		for (int i = 1; i <= 100; i++) {
 			
 			if (i%3==0) {
-				string [] divi
+				//string [] divi
 			} 
 			if (i%5==0) {
 				
