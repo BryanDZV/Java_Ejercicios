@@ -21,6 +21,7 @@ public class Ejercicio18_sumarDigitos {
 			//VALOR DE CARACTER
 			int valorCaracter=Character.getNumericValue(numString.charAt(i));
 			
+			
 			//System.out.println("soy Valor---"+valorCaracter+"----"+ "en posicion"+i);
 			//SUMO SUS VALOR O DIGITOS
 			

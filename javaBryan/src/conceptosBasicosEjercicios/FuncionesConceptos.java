@@ -17,9 +17,8 @@ public class FuncionesConceptos {
 
 	}
 
+	/* CONVERTIR CARACTER A STRING */
 	public static String charaToString(int parametro) {
-		// en funcion del parametro cambialo
-		/* CONVERTIR CARACTER A STRING */
 
 		// METODO 1 CHARACTER.TOSTRING()
 
@@ -28,7 +27,13 @@ public class FuncionesConceptos {
 
 		// METODO 2 CONCATENANDO
 
-		String cambiadaS = "" + parametro;
+//		String cambiadaS = "" + parametro;
+//		return cambiadaS;
+		
+		//METODO 3 STRING OF VALUE()
+		
+		String cambiadaS=String.valueOf(parametro);
+		
 		return cambiadaS;
 
 	}
@@ -292,7 +297,7 @@ public class FuncionesConceptos {
 		for (int i = 1; i <= 100; i++) {
 			
 			if (i%3==0) {
-				//string [] divi
+				//string [] diviTres=
 			} 
 			if (i%5==0) {
 				
