@@ -29,11 +29,11 @@ public class FuncionesConceptos {
 
 //		String cambiadaS = "" + parametro;
 //		return cambiadaS;
-		
-		//METODO 3 STRING OF VALUE()
-		
-		String cambiadaS=String.valueOf(parametro);
-		
+
+		// METODO 3 STRING OF VALUE()
+
+		String cambiadaS = String.valueOf(parametro);
+
 		return cambiadaS;
 
 	}
@@ -242,7 +242,7 @@ public class FuncionesConceptos {
 		String resultado = "su contraseña era:" + arrayContraseña;
 		return resultado;
 	}
-	
+
 	// la lógica de formateo
 
 	public static String generarTextoFormateado(String parametro) {
@@ -266,20 +266,17 @@ public class FuncionesConceptos {
 
 	// CADENA (STRING) A ENTERO
 
-	public static  int cadenaToNumero(String parametro) {
+	public static int cadenaToNumero(String parametro) {
 		// coger string y usar metodo to String
-		// parametro<=0 && parametro >=0 usando Stringquesea.matches dev boolean parametro.matches("[0-9]+"  LAVALIDACION LA HAGO EN EL MAIN ME ASEGURO DE 
-		//PASAR A MI METODO LOS DATOS CORRECTOS DESDE EL MAIN EL METODO SOLO HACE
+		// parametro<=0 && parametro >=0 usando Stringquesea.matches dev boolean
+		// parametro.matches("[0-9]+" LAVALIDACION LA HAGO EN EL MAIN ME ASEGURO DE
+		// PASAR A MI METODO LOS DATOS CORRECTOS DESDE EL MAIN EL METODO SOLO HACE
 		int convertidoNum = 0;
-		
 
 		convertidoNum = Integer.parseInt(parametro);
 		return convertidoNum;
-		
-		
+
 	}
-
-
 
 	// MOSTRAR HORA
 
@@ -289,32 +286,51 @@ public class FuncionesConceptos {
 
 		return hora;
 	}
-	
-	//DIVISIBLE POR 2 NUMEROS
-	
+
+	// DIVISIBLE POR 2 NUMEROS
+
 	public static String divisibleMultiple(int par1, int par2) {
-		
+		int[] arrayTres = new int[101];//posiciones que tiene de 0 a 9
+		int[] arrayCinco = new int[101];
+		int[] arrayAmbos = new int[101];
 		for (int i = 1; i <= 100; i++) {
-			
-			if (i%3==0) {
-				//string [] diviTres=
-			} 
-			if (i%5==0) {
+
+			if (i % 3 == 0) {
 				
-			}
-			if (i%5==0 && i%3==0) {
 				
+				arrayTres[i] = i;
+				System.out.println(arrayTres.length);
+
 			}
-			
-			
+			if (i % 5 == 0) {
+				arrayCinco[i] = i;
+
+			}
+			if (i % 5 == 0 && i % 3 == 0) {
+				arrayAmbos[i] = i;
+
+			}
+
 		}
 		
-		
-		
-		
-		return null;
+		String resultado=arrayTres.toString();
+		return resultado;
 	}
-	
-	
+
+	// verificar par
+	public static boolean verificarPar(int parA) {
+		// TODO Auto-generated method stub
+
+		boolean esPar;
+		if (parA % 2 == 0) {
+			esPar = true;
+
+		} else {
+			esPar = false;
+
+		}
+
+		return esPar;
+	}
 
 }// clase ENGLOBA A TODAS SIEMPRE
