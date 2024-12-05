@@ -1,6 +1,6 @@
 package conceptosBasicosEjercicios;
 
-import java.time.*;
+import java.time.LocalTime;
 
 public class FuncionesConceptos {
 
@@ -290,14 +290,13 @@ public class FuncionesConceptos {
 	// DIVISIBLE POR 2 NUMEROS
 
 	public static String divisibleMultiple(int par1, int par2) {
-		int[] arrayTres = new int[101];//posiciones que tiene de 0 a 9
+		int[] arrayTres = new int[101];// posiciones que tiene de 0 a 9
 		int[] arrayCinco = new int[101];
 		int[] arrayAmbos = new int[101];
 		for (int i = 1; i <= 100; i++) {
 
 			if (i % 3 == 0) {
-				
-				
+
 				arrayTres[i] = i;
 				System.out.println(arrayTres.length);
 
@@ -312,8 +311,8 @@ public class FuncionesConceptos {
 			}
 
 		}
-		
-		String resultado=arrayTres.toString();
+
+		String resultado = arrayTres.toString();
 		return resultado;
 	}
 
@@ -332,55 +331,46 @@ public class FuncionesConceptos {
 
 		return esPar;
 	}
-	
+
 	// La suma es igual al tercer entero
-	
-public static boolean tercerEntero(int numA, int numB, int numC) {
-		
+
+	public static boolean tercerEntero(int numA, int numB, int numC) {
+
 		// TODO Auto-generated method stub
-		int suma=numA+numB;
-		
-		
-		
-		
-		return suma==numC;
+		int suma = numA + numB;
+
+		return suma == numC;
 	}
 
 //Lógica de comparación de números
 
-public static boolean comparacionNumeros(int numA, int numB, int numC) {
-	// TODO Auto-generated method stub
-	
-	boolean comparacionUno=numA<numB && numB<numC;
-	//boolean comparacionDos=numB<numC;
-	
-	
-	return comparacionUno;
-	
+	public static boolean comparacionNumeros(int numA, int numB, int numC) {
+		// TODO Auto-generated method stub
 
-	
-}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		boolean comparacionUno = numA < numB && numB < numC;
+		// boolean comparacionDos=numB<numC;
+
+		return comparacionUno;
+
+	}
+
+//Logica Extremos derchos Iguales
+	public static boolean extremosDigitos(int numA, int numB, int numC) {
+		// TODO Auto-generated method stub
+
+		String cadenaA = String.valueOf(numA);
+		String cadenaB = String.valueOf(numB);
+		String cadenaC = String.valueOf(numC);
+
+		String[] arrayCadenas = { cadenaA, cadenaB, cadenaC };
+
+		for (int i = 0; i < arrayCadenas.length; i++) {
+			char extracionCaracteresArray = arrayCadenas.toString().charAt(i);
+			System.out.println(extracionCaracteresArray);
+
+		}
+
+		return false;
+	}
 
 }// clase ENGLOBA A TODAS SIEMPRE
