@@ -10,7 +10,7 @@ public class Ejercicio35_51 {
 		
 		
 		
-		System.out.println("introduce un texto(numero) para convertir a entero");
+		System.out.println("introduce un (numero) para convertir a entero");
 		String cadenaNum=Entrada.cadena();
 		
 		while (!cadenaNum.matches("[0-9]+")) {
@@ -18,7 +18,7 @@ public class Ejercicio35_51 {
 			 cadenaNum=Entrada.cadena();			
 		}
 		
-		System.out.println("Cadena(String) "+cadenaNum+"  convertida a numero(int):\n"+FuncionesConceptos.cadenaToNumero(cadenaNum));
+		System.out.println("Cadena(String) ="+cadenaNum+"  convertida a numero entero(int)="+FuncionesConceptos.cadenaToNumero(cadenaNum));
 		
 
 	}

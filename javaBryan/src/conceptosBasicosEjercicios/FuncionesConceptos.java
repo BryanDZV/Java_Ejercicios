@@ -332,5 +332,55 @@ public class FuncionesConceptos {
 
 		return esPar;
 	}
+	
+	// La suma es igual al tercer entero
+	
+public static boolean tercerEntero(int numA, int numB, int numC) {
+		
+		// TODO Auto-generated method stub
+		int suma=numA+numB;
+		
+		
+		
+		
+		return suma==numC;
+	}
+
+//Lógica de comparación de números
+
+public static boolean comparacionNumeros(int numA, int numB, int numC) {
+	// TODO Auto-generated method stub
+	
+	boolean comparacionUno=numA<numB && numB<numC;
+	//boolean comparacionDos=numB<numC;
+	
+	
+	return comparacionUno;
+	
+
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }// clase ENGLOBA A TODAS SIEMPRE
