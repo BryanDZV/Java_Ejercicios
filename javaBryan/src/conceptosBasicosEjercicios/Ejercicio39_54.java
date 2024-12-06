@@ -15,7 +15,7 @@ public class Ejercicio39_54 {
 				+ "//(números enteros) tienen el mismo dígito en el extremo derecho. Los números enteros no son negativos");
 
 		int numA = 25;
-		int numB = 75;
+		int numB = 74;
 		int numC = 12;
 
 		if (FuncionesConceptos.extremosDigitos(numA, numB, numC)) {

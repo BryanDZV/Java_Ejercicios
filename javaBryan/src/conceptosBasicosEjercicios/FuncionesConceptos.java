@@ -362,15 +362,35 @@ public class FuncionesConceptos {
 		String cadenaB = String.valueOf(numB);
 		String cadenaC = String.valueOf(numC);
 
-		String[] arrayCadenas = { cadenaA, cadenaB, cadenaC };
+		char ultimaPosicionA = cadenaA.charAt(cadenaA.length() - 1);
+		char ultimaPosicionB = cadenaB.charAt(cadenaB.length() - 1);
+		char ultimaPosicionC = cadenaC.charAt(cadenaC.length() - 1);
+		char[] ultimasPosiciones = { ultimaPosicionA, ultimaPosicionB, ultimaPosicionC };
+		boolean resultado = false;
 
-		for (int i = 0; i < arrayCadenas.length; i++) {
-			char extracionCaracteresArray = arrayCadenas.toString().charAt(i);
-			System.out.println(extracionCaracteresArray);
+		if (ultimaPosicionA == ultimaPosicionB || ultimaPosicionA == ultimaPosicionC
+				|| ultimaPosicionB == ultimaPosicionC) {
+			resultado = true;
 
 		}
 
-		return false;
+		return resultado;
+	}
+
+	// CONVERSION A HORAS
+
+	public static String conversiontoHoras(double segundos) {
+		// TODO Auto-generated method stub
+
+		double enSegundos = segundos % 60;
+
+		double enHoras = segundos / 60;
+		double enMinutos = enHoras % 60;
+
+		enHoras = enHoras / 60;
+
+		String resultado = enHoras + ":" + enMinutos + ":" + enSegundos;
+		return resultado;
 	}
 
 }// clase ENGLOBA A TODAS SIEMPRE
