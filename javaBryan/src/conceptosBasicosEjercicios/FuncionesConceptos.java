@@ -393,4 +393,24 @@ public class FuncionesConceptos {
 		return resultado;
 	}
 
+	// FACTORES DE UN NUMERO
+
+	public static int[] factoresNumero(int numero) {
+		int contadorFactores = 0;
+		int[] factoresValido = new int[contadorFactores];
+		for (int j = 1; j <= numero; j++) {
+			if (numero % j == 0) {
+				int[] factores = new int[(j = numero / 2) + 1];// me hago un tamaño suficiente
+
+				factores[contadorFactores] = j; // Guardar el factor en la posición correcta
+
+				contadorFactores++;
+				factoresValido = factores;
+			} // fin if
+
+		} // fin bucle for j
+
+		return factoresValido;
+	}// fin clase factor
+
 }// clase ENGLOBA A TODAS SIEMPRE
