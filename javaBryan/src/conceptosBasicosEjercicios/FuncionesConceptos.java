@@ -392,6 +392,40 @@ public class FuncionesConceptos {
 		String resultado = enHoras + ":" + enMinutos + ":" + enSegundos;
 		return resultado;
 	}
+	
+	//Contar DIVISIBLES EN EL RANGO
+	
+	public static int divisibleRango(int rangoX, int rangoY, int divisible) {
+		// TODO Auto-generated method stub
+		int contadorDivisible=0;
+		
+		for (int i = rangoX; i <= rangoY; i++) {
+			 int h=i%divisible;
+			if (h==0) {
+				
+				contadorDivisible++;
+				
+			}
+			
+			
+		}
+		return contadorDivisible;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// FACTORES DE UN NUMERO
 
