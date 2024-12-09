@@ -392,59 +392,109 @@ public class FuncionesConceptos {
 		String resultado = enHoras + ":" + enMinutos + ":" + enSegundos;
 		return resultado;
 	}
-	
-	//Contar DIVISIBLES EN EL RANGO
-	
+
+	// Contar DIVISIBLES EN EL RANGO
+
 	public static int divisibleRango(int rangoX, int rangoY, int divisible) {
 		// TODO Auto-generated method stub
-		int contadorDivisible=0;
-		
+		int contadorDivisible = 0;
+
 		for (int i = rangoX; i <= rangoY; i++) {
-			 int h=i%divisible;
-			if (h==0) {
-				
+			int h = i % divisible;
+			if (h == 0) {
+
 				contadorDivisible++;
-				
+
 			}
-			
-			
+
 		}
 		return contadorDivisible;
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	// FACTORES DE UN NUMERO
-
-	public static int[] factoresNumero(int numero) {
+	// Método para calcular los factores de un número imPRIME CANTIDAD Y LOS NUMEROS
+	// DEL ARRAY
+	public static int[] factoresLosNumeros(int numero) {
+		// Primera pasada: calcular cuántos factores tiene el número
 		int contadorFactores = 0;
-		int[] factoresValido = new int[contadorFactores];
 		for (int j = 1; j <= numero; j++) {
 			if (numero % j == 0) {
-				int[] factores = new int[(j = numero / 2) + 1];// me hago un tamaño suficiente
-
-				factores[contadorFactores] = j; // Guardar el factor en la posición correcta
-
 				contadorFactores++;
-				factoresValido = factores;
+			}
+		}
+
+		// Crear un array con el tamaño exacto
+		int[] factoresValidos = new int[contadorFactores];
+
+		// Segunda pasada: llenar el array con los factores
+		int index = 0;
+		// index es una variable auxiliar que usamos COMO CONTADOR O POSICION ACTUAL
+		// DENTRO DEL ARRAY factoresValidos.
+		// Nos ayuda a almacenar los factores en las posiciones correctas del array,
+		// avanzando de uno en uno.
+		for (int j = 1; j <= numero; j++) {
+			if (numero % j == 0) {
+				factoresValidos[index] = j;
+				index++;
+			}
+		}
+
+		return factoresValidos;
+	}
+
+	// METODO FACTORES SOLO IMPRIME CANTIDAD
+	public static int factoresNumeroCantidad(int numeroA) {
+		// TODO Auto-generated method stub
+		int contador = 0;
+		for (int i = 1; i <= numeroA; i++) {
+			if (numeroA % i == 0) {
+				contador++;
+
 			} // fin if
 
-		} // fin bucle for j
+		} // fin for
+		return contador;
+	}// FIn FACTORES
 
-		return factoresValido;
-	}// fin clase factor
+	/// primeraLetraMayuscula
+
+	public static String[] primeraLetraMayuscula(String texto) {
+		// TODO Auto-generated method stub
+
+		String[] textoSplit = texto.split(" ");
+		int index = 0;
+		int contador = 0;
+
+		// calcular dimension de array
+
+		for (int i = 0; i < textoSplit.length; i++) {
+			contador++;
+		}
+
+		// tamaño del array contendor
+		String[] textoFormateado = new String[contador];
+		String textoFormateado2 = "";
+
+		// RELLENO EL ARRAY CON EL TEXTO
+		// USO CONTADOR INDEX AUXILIAR PARA IR RELLENANDO EN CADA i DEL ARRAY
+		for (int i = 0; i < textoSplit.length; i++) {
+			// RECORRO ARRAY EN CADA POSCION TRABOJO CON LA CADENA
+			textoFormateado[index] = textoSplit[i].toUpperCase().charAt(0) + textoSplit[i].substring(1);
+			// System.out.println(textoFormateado);
+			// INDEX AUMENTO EN 1 PARA SIGUIENTE POSICION...
+			index++;
+		}
+
+		/// OTRO METODO
+		for (String string : textoSplit) {
+			char primeraLetra = string.toUpperCase().charAt(0);
+			textoFormateado2 += primeraLetra + string.substring(1).toLowerCase() + " ";
+			// System.out.println(textoFormateado2);
+
+		}
+
+		return textoFormateado;
+
+	}// fin primeraLetraMayuscula
 
 }// clase ENGLOBA A TODAS SIEMPRE
