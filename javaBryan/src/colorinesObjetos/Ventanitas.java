@@ -14,29 +14,27 @@ public class Ventanitas {
 
 			if (StdDraw.isMousePressed()) {
 				System.out.println("se esta pulsando y saliendo");
-				//System.exit(0);
+				// System.exit(0);
 
 			}
-			
-			//detectar si una tecla esta pulsada
-			
-			
-			if (StdDraw.isKeyPressed(KeyEvent.VK_C)) {
+
+			// detectar si una tecla esta pulsada
+
+			if (StdDraw.isKeyPressed(KeyEvent.VK_RIGHT)) {
 				System.out.println("se esta presionando la tecla");
+				
 				/// CUADRADO
 				StdDraw.setPenColor(StdDraw.YELLOW);
-				//StdDraw.filledSquare(r.nextInt(-100,101), r.nextInt(-100,100), 2.5);
-				//StdDraw.square(-50, -50, 50);
-				
-			} 
+				//StdDraw.filledSquare(r.nextInt(-100,101), nextInt(-100,100), 2.5);
+				//StdDraw.fill
+
+			}
+			//circulo
+			StdDraw.setPenColor(StdDraw.GREEN);
+			StdDraw.filledCircle(0, 0, 0.15);
 			
 			
-			
-			
-			
-			
-			
-			
+
 			//
 			StdDraw.setXscale(-100, 100);
 			StdDraw.setYscale(-100, 100);
