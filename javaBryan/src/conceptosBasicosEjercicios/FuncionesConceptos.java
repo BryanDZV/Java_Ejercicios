@@ -496,5 +496,27 @@ public class FuncionesConceptos {
 		return textoFormateado;
 
 	}// fin primeraLetraMayuscula
+	
+	
+	// CONVERTIR CADENA A MINUSCULAS cadenaMinusculas
+	
+	public static String cadenaMinusculas(String texto) {
+		// TODO Auto-generated method stub
+		
+		String textoFormateado=texto.toLowerCase();
+		
+		
+		
+		return textoFormateado;
+	}//FIN cadenaMinusculas
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }// clase ENGLOBA A TODAS SIEMPRE
