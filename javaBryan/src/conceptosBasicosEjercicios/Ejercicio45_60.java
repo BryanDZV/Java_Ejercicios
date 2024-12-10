@@ -4,38 +4,16 @@ public class Ejercicio45_60 {
 
 	public static void main(String[] args) {
 		/*
-		 * Encuentra la penúltima palabra
+		 * Encuentra la penúltima palabra OJO PALABRA NO CARACTER
 		 * 
-		 * Escriba un programa Java para encontrar la 
-		 * penúltima palabra (la penúltima)
+		 * Escriba un programa Java para encontrar la penúltima palabra (la penúltima)
 		 * de una oración.
 		 */
-		
+
 		System.out.println("itroduzca un texto");
-		String texto="El rápido zorro marrón salta sobre el perro perezoso.";
+		String texto = "The quick brown fox jumps over the lazy dog . sdasd";
+		System.out.println("la penultima palabra es:  " + FuncionesConceptos.penultimaPalbra(texto));
 
-		penultimaPalbra(texto);
-	}
-
-	public static void penultimaPalbra(String texto) {
-		// TODO Auto-generated method stub
-		
-		System.out.println("TAMAÑO DE STRING  :"+(texto.length()-(1)));
-		
-		for (int i = 0; i <= texto.length(); i++)//iempieza en 0 
-		{
-			
-			
-			String penultimoSubtring=texto.substring((texto.length()-(1)),(texto.length()));
-		System.out.println(penultimoSubtring);
-		
-		}
-		
-		
-		
-		
-		return ;
-		
 	}
 
 }

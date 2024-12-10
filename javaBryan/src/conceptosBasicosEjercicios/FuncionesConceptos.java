@@ -496,27 +496,69 @@ public class FuncionesConceptos {
 		return textoFormateado;
 
 	}// fin primeraLetraMayuscula
-	
-	
+
 	// CONVERTIR CADENA A MINUSCULAS cadenaMinusculas
-	
+
 	public static String cadenaMinusculas(String texto) {
 		// TODO Auto-generated method stub
-		
-		String textoFormateado=texto.toLowerCase();
-		
-		
-		
+
+		String textoFormateado = texto.toLowerCase();
+
 		return textoFormateado;
-	}//FIN cadenaMinusculas
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}// FIN cadenaMinusculas
+
+	///// penultimaPalbra
+	public static String penultimaPalbra(String texto) {
+		/*
+		 * NOTA¡¡¡¡¡ Cuando pienses en índices, cuenta desde 0. Cuando pienses en
+		 * posiciones humanas, cuenta desde 1. String: H o l a Índice: 0 1 2 3
+		 * Posición:1 2 3 4
+		 * 
+		 * si pones<= tendras que poner -1 si pones solo < no hace falta el -1
+		 * 
+		 * PERO EN MUNDO MAQUINA EL ULTIMO INDICE SIEMPRE ES EL TAMAÑO HUMANO -1
+		 * 
+		 * RECORRER UN STRING=RECORRER CADA CARACTER EN POSICION i
+		 */
+
+		String[] arrayTexto = texto.split("[ ]+");
+		// tDevuelve el número total de elementos en el arrayes decir, el tamaño real.
+		int tamaño = arrayTexto.length;
+		// indice para accder al elemento
+
+		int penultimo = arrayTexto.length - 2;
+
+		String palabra = arrayTexto[penultimo];
+
+		return palabra;
+
+	}// fin penultimaPalbra
+
+	/// INVERTIR FRASE O PLABRA
+
+	public static String palabraInversa(String palabra) {
+		// TODO Auto-generated method stub
+
+		String resultado = "";
+		for (int i = palabra.length() - 1; i >= 0; i--) {
+
+			char caracterInvertidos = palabra.charAt(i);
+
+			// System.out.print(resultado);
+
+		} // fin for
+
+		// System.out.println("\n" + "----------------------");
+		int in = palabra.length() - 1;
+		while (in >= 0) {
+			char caracteresInvertidosDos = palabra.charAt(in);
+			in--;
+
+			resultado += caracteresInvertidosDos;
+			// System.out.print(extra);
+		} // fin while
+
+		return resultado;
+	}// fin frase inversa
 
 }// clase ENGLOBA A TODAS SIEMPRE
