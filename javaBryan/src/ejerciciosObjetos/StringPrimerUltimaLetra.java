@@ -1,5 +1,6 @@
 package ejerciciosObjetos;
 
+import conceptosBasicosEjercicios.FuncionesConceptos;
 import utilidades.Entrada;
 
 public class StringPrimerUltimaLetra {
@@ -10,12 +11,10 @@ public class StringPrimerUltimaLetra {
 		System.out.println("introduce un texto");
 
 		String texto1 = Entrada.cadena();
+		System.out.println("ultima letra  :" + FuncionesConceptos.ultimaLetra(texto1));
 
-		String primeraLetra = texto1.substring(0, 1);
-		System.out.println("primera letra " + primeraLetra);
-
-		String ultimaLetra = texto1.substring(texto1.length() - 1);
-		System.out.println("ultima letra " + ultimaLetra);
+		System.out.println("---------------------------------------------------------");
+		System.out.println("primer letra  :" + FuncionesConceptos.primeraLetra(texto1));
 
 	}
 

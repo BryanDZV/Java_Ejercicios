@@ -560,5 +560,53 @@ public class FuncionesConceptos {
 
 		return resultado;
 	}// fin frase inversa
+	
+	
+	////FUNCIION PRIMERA LETRA
+	
+	public static String primeraLetra(String texto1) {
+		// TODO Auto-generated method stub
+		String primeraLetra = texto1.substring(0, 1);
+		//System.out.println("primera letra " + primeraLetra);
+		
+		
+		return primeraLetra;
+	}//FIN
+	
+	////FUNCION ULTIMA LETRA
+	
+	
+	public static String ultimaLetra(String texto1) {
+		// TODO Auto-generated method stub
+		
+		String ultimaLetra = texto1.substring(texto1.length() - 1);
+		//System.out.println("ultima letra " + ultimaLetra);
+		
+
+		
+		
+		return ultimaLetra;
+	}//FIN
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }// clase ENGLOBA A TODAS SIEMPRE
