@@ -1,5 +1,6 @@
 package ejerciciosObjetos;
 
+import conceptosBasicosEjercicios.FuncionesConceptos;
 import utilidades.Entrada;
 
 public class ExpresionesRegulares {
@@ -10,7 +11,7 @@ public class ExpresionesRegulares {
 		System.out.println("introduzca un numero");
 		String texto1 = Entrada.cadena();
 
-		if (esDigito(texto1)) {
+		if (FuncionesConceptos.esDigitoExpresionRegular(texto1)) {
 			System.out.println("si es un digito");
 
 		} else {
@@ -23,24 +24,6 @@ public class ExpresionesRegulares {
 	
 	
 
-	public static boolean esDigito(String texto1) {
-		// TODO Auto-generated method stub
-		boolean resultado = false;
-		for (int i = 0; i < texto1.length(); i++) {
-			char caracter = texto1.charAt(i);
-			
-			
 
-			if (Character.isDigit(caracter) & texto1.matches("[0-9]+") ) {
-				resultado = true;
-
-			}else {
-				resultado=false;
-			}
-
-		}
-
-		return resultado;
-	}
 
 }

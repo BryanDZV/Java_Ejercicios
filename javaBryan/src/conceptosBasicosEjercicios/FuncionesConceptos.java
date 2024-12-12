@@ -560,53 +560,99 @@ public class FuncionesConceptos {
 
 		return resultado;
 	}// fin frase inversa
-	
-	
-	////FUNCIION PRIMERA LETRA
-	
+
+	//// FUNCIION PRIMERA LETRA
+
 	public static String primeraLetra(String texto1) {
 		// TODO Auto-generated method stub
 		String primeraLetra = texto1.substring(0, 1);
-		//System.out.println("primera letra " + primeraLetra);
-		
-		
+		// System.out.println("primera letra " + primeraLetra);
+
 		return primeraLetra;
-	}//FIN
-	
-	////FUNCION ULTIMA LETRA
-	
-	
+	}// FIN
+
+	//// FUNCION ULTIMA LETRA
+
 	public static String ultimaLetra(String texto1) {
 		// TODO Auto-generated method stub
-		
-		String ultimaLetra = texto1.substring(texto1.length() - 1);
-		//System.out.println("ultima letra " + ultimaLetra);
-		
 
-		
-		
+		String ultimaLetra = texto1.substring(texto1.length() - 1);
+		// System.out.println("ultima letra " + ultimaLetra);
+
 		return ultimaLetra;
-	}//FIN
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}// FIN
+
+	/// EXPRESIONES REGULARES
+
+	public static boolean esDigitoExpresionRegular(String texto1) {
+		// TODO Auto-generated method stub
+		boolean resultado = false;
+
+		// METODO1
+		for (int i = 0; i < texto1.length(); i++) {
+			char caracter = texto1.charAt(i);
+
+			if (Character.isDigit(caracter)) {
+				resultado = true;
+
+			} else {
+				resultado = false;
+			}
+
+		} // FIN FOR
+
+		// METODO DOS
+		texto1.matches("[0-9]+");
+
+		return resultado;
+	}// FIN EXPRESIONES REGULARES
+
+	// nulos
+	public static String funcionNull(String texto1) {
+		// TODO Auto-generated method stub
+
+		String nulo = texto1.substring(texto1.length() - 1);
+
+		return nulo;
+	}// fin nulos
+
+	// Reges Matricula
+
+	public static boolean esMatricula(String matricula) {
+		// TODO Auto-generated method stub
+		// REQUISISTOS MATRICULA
+
+		// con boleando lo exporto
+
+		boolean resultado = false;
+
+		if (matricula.matches("[0-9]{4}[ ][A-Z]{3}")) {
+			// System.out.println("es una matricula valida");
+			resultado = true;
+		} else {
+			// System.out.println("no es un matricula valida");
+			resultado = false;
+		}
+		return resultado;
+
+	}// fin matricula
+
+	// TELEFONO REGEx
+
+	public static boolean esTelefono(String telefono) {
+		// TODO Auto-generated method stub
+
+		boolean resultado = false;
+
+		if (telefono.matches("\\+[0-9]{1,3}[ -]?[0-9]{9}")) {
+			System.out.println("es un numero internacional");
+			resultado = true;
+		} else {
+//System.out.println("no es un numero internacional");
+			resultado = false;
+		}
+
+		return resultado;
+	}// fin telefonor eges
 
 }// clase ENGLOBA A TODAS SIEMPRE
