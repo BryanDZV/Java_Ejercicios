@@ -10,50 +10,92 @@ public class DniRegex {
 		System.out.println("introduzca un dni");
 		String dni = Entrada.cadena();
 
-		dniValido(dni);
+		String resultado = dniValido(dni);
+		System.out.println(resultado);
 
 	}
 
-	public static void dniValido(String dni) {
+	public static String dniValido(String dni) {
 		// TODO Auto-generated method stub
 		// DEUELVE NORMALIZADO UN sTRING LA FUNCION
 		// NULL SI ES IVALIDO
 
 		// expresion regex
-		String t = "[1-9]{8}[A-Z]";
+		String t = "[0-9]{1,7}[0-9][a-zA-Z]";
 
-		if (t == dni) {
-			System.out.println("formato valido");
-		} else {
-			System.out.println("formato no valido");
+		// VALIDACION REGEX
+		if (!dni.matches(t)) {
+			System.out.println("Formato no válido");
+			return null;
 		}
 
-		// array letra
-		char[] arrayLetra = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
-				'H', 'L', 'C', 'K', 'E' };
+		// NORMALIZAR mayusculas dni
+		String normalizado = dni.toUpperCase();
+		char[] normalizadoDos = new char[9];
+		int indice = normalizado.length() - 1;
+
+		// RELLENADO DE CEROS
+		for (int i = normalizadoDos.length - 1; i >= 0; i--) {
+			if (indice >= 0) {
+				// Accedemos a los caracteres del String con charAt
+				normalizadoDos[i] = normalizado.charAt(indice);
+				indice--;
+			} else {
+				// Rellenar con ceros si no hay más dígitos
+				normalizadoDos[i] = '0';
+			}
+		}
+
+		// CREO UN OBJETO STRING CON el array de char
+		String dniNormalizado = new String(normalizadoDos);
+
+		// array letra para control
+		String[] arrayLetra = { "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q",
+				"V", "H", "L", "C", "K", "E" };
 
 		// letra requsito
-		String numero = "[0-9]{8}";
-		int numeroD = Integer.valueOf(numero);
-		int resultado = numeroD % 23;
-		System.out.println(resultado);
+		String soloNumero = dni.substring(0, dni.length() - 1);
+		int valorNumerico = Integer.parseInt(soloNumero);
+		int resultado = valorNumerico % 23;
+		// System.out.println("soy el resto"+resultado);
 
 		// COICIDIR LETRA CON REQUISITO
+		/*
+		 * cada letra tiene un indice asignado en el array cada dni tiene una letra
+		 * calculada y debe coincidir con la letra de idice asignado en el arrayLetra
+		 * 
+		 */
 
-		for (int i = 0; i < arrayLetra.length; i++) {
+		// caracter en indice resultado en el arrayLetra
+		String caracterArray = arrayLetra[resultado];
 
-			if (resultado == i) {
-				System.out.println(arrayLetra[i]);
+		// caracter de mi dni normalizado
+		String letraDni = dniNormalizado.substring(dniNormalizado.length() - 1);
 
-			} else {
-				System.out.println("no lelga");
+		/*
+		 * NOTA cuando usas == para comparar objetos como String, estás verificando si
+		 * ambas referencias apuntan al mismo objeto en memoria, no si los valores de
+		 * las cadenas son iguales. Usa == para comparar referencias (¿es el mismo
+		 * objeto?).
+		 * 
+		 * Usa equals() para comparar valores (¿tienen el mismo contenido?).
+		 */
 
-			}
+		// COMPARACION VALORES
+		// ???0
+		// String devolucion="";
+		String devolucion = new String();
 
+		if (letraDni.equals(caracterArray)) {
+
+			// System.out.println("dni valido");
+			devolucion = dniNormalizado;
+		} else {
+			// System.out.println("dni no valido");
+			devolucion = null;
 		}
 
-		dni.matches(t);
-
+		return devolucion;
 	}
 
 }
