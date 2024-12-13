@@ -8,6 +8,9 @@ public class Ventanitas {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		//sistema para dibujar 
+		StdDraw.enableDoubleBuffering();
 
 		for (;;) {
 			// detectar si el raton esta pulsado
@@ -81,6 +84,8 @@ public class Ventanitas {
 
 			StdDraw.pause(300);
 			// System.exit(0);
+			StdDraw.show();
+			//Mostrar el dibujo
 		}
 
 	}

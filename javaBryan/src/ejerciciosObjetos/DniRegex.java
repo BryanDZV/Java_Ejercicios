@@ -6,12 +6,19 @@ public class DniRegex {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		// TRIM SOLO QUITA ESPACIOS A LOS LADOS
 
 		System.out.println("introduzca un dni");
 		String dni = Entrada.cadena();
 
 		String resultado = dniValido(dni);
-		System.out.println(resultado);
+
+		if (resultado == null) {
+			System.out.println("DNI INCORRECTO :" + resultado);
+
+		} else {
+			System.out.println("DNI CORRECTO :" + resultado);
+		}
 
 	}
 
@@ -21,20 +28,20 @@ public class DniRegex {
 		// NULL SI ES IVALIDO
 
 		// expresion regex
-		String t = "[0-9]{1,7}[0-9][a-zA-Z]";
+		String t = "([0-9]{1,7})?[0-9][a-zA-Z]";
 
-		// VALIDACION REGEX
+		// 1 VALIDACION REGEX
 		if (!dni.matches(t)) {
 			System.out.println("Formato no válido");
 			return null;
 		}
 
-		// NORMALIZAR mayusculas dni
-		String normalizado = dni.toUpperCase();
+		// 2 NORMALIZAR mayusculas dni
+		String normalizado = dni.trim().toUpperCase();
 		char[] normalizadoDos = new char[9];
 		int indice = normalizado.length() - 1;
 
-		// RELLENADO DE CEROS
+		// 3 RELLENADO DE CEROS
 		for (int i = normalizadoDos.length - 1; i >= 0; i--) {
 			if (indice >= 0) {
 				// Accedemos a los caracteres del String con charAt
@@ -46,16 +53,16 @@ public class DniRegex {
 			}
 		}
 
-		// CREO UN OBJETO STRING CON el array de char
+		// 5CREO UN OBJETO STRING CON el array de char
 		String dniNormalizado = new String(normalizadoDos);
 
 		// array letra para control
 		String[] arrayLetra = { "T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q",
 				"V", "H", "L", "C", "K", "E" };
 
-		// letra requsito
+		// 6 letra requsito
 		String soloNumero = dni.substring(0, dni.length() - 1);
-		int valorNumerico = Integer.parseInt(soloNumero);
+		int valorNumerico = Integer.parseInt(soloNumero);// Devuelve un valor primitivo int
 		int resultado = valorNumerico % 23;
 		// System.out.println("soy el resto"+resultado);
 
@@ -73,7 +80,7 @@ public class DniRegex {
 		String letraDni = dniNormalizado.substring(dniNormalizado.length() - 1);
 
 		/*
-		 * NOTA cuando usas == para comparar objetos como String, estás verificando si
+		 * NOTA cuando uso == para comparar objetos como String, estás verificando si
 		 * ambas referencias apuntan al mismo objeto en memoria, no si los valores de
 		 * las cadenas son iguales. Usa == para comparar referencias (¿es el mismo
 		 * objeto?).
