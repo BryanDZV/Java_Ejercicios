@@ -8,8 +8,16 @@ public class PruebasApiJava {
 		String cadena = "89";
 
 		int numero = 45;
+		
+		char ta='A';
+		
+		String t=Character.toString(ta);
+		
+		System.out.println(t);
 
-		System.out.println(String.valueOf(numero) + 2);
+		System.out.println(String.valueOf(34) + 2);
+		
+		
 
 	}
 

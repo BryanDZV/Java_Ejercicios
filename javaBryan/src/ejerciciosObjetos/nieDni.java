@@ -2,7 +2,7 @@ package ejerciciosObjetos;
 
 public class nieDni {
 
-	public static void main(String[] args) {
+	//public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
 		public static String validarDniNie(String dniNie) {
@@ -56,19 +56,14 @@ public class nieDni {
 				if (letra==letraCalculada) {
 					while (dniNie.length()<9) { //8digitos+letra
 						dniNie="0"+dniNie;
-					}
-				}
-				else //dni incorrecto
+					
+				}else{
+				
+				 //dni incorrecto
 					dniNie=null;
-			
-				return dniNie;
-			}
+				}
 				
 		
-		
-		
-		
-
 	}
-
-}
+return dniNie;				
+}}}
