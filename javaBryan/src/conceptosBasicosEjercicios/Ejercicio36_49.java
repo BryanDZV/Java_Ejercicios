@@ -2,7 +2,7 @@ package conceptosBasicosEjercicios;
 
 import utilidades.Entrada;
 
-public class Ejercicios36_49 {
+public class Ejercicio36_49 {
 
 	public static void main(String[] args) {
 		// Escriba un programa Java que acepte un 

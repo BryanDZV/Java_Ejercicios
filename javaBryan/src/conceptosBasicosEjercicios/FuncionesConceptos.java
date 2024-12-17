@@ -655,4 +655,28 @@ public class FuncionesConceptos {
 		return resultado;
 	}// fin telefonor eges
 
+	/// comprueba la diferencia
+
+	public static boolean compruebaDiferencia(int numA, int numB, int numC) {
+		// TODO Auto-generated method stub
+		/*
+		 * 1 realizar restas entre todos{restas} 2 comprobar si un parametro es 20 o
+		 * menor que las restas 3 true si algo paso 2 se cumple
+		 * 
+		 * 
+		 */
+
+		int regla1 = 20;// seia el 3 parametro para cada caso
+		boolean resultado = false;
+		int valorAbsouluto = Math.abs(numA - numB);
+		int valorAbsouluto2 = Math.abs(numA - numC);
+		int valorAbsouluto3 = Math.abs(numC - numB);
+
+		if (valorAbsouluto >= regla1 || valorAbsouluto2 >= regla1 || valorAbsouluto3 >= regla1) {
+			resultado = true;
+
+		}
+		return resultado;
+	}// FIN COMPRUEBA
+
 }// clase ENGLOBA A TODAS SIEMPRE

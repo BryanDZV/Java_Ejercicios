@@ -2,7 +2,7 @@ package conceptosBasicosEjercicios;
 
 import utilidades.Entrada;
 
-public class Ejercicios34_50 {
+public class Ejercicio34_50 {
 
 	public static void main(String[] args) {
 
