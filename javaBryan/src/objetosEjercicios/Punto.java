@@ -50,8 +50,24 @@ public class Punto {
 	}
 
 	public static void main(String[] args) {
+
 		Punto p = new Punto(3, 7, Color.GREEN);
 		Punto p2 = new Punto(5, 1);
+		// TODO Auto-generated method stub
+
+		double x;
+		double y;
+		Color color;
+
+		/*
+		 * public static void main (String[] args) {
+		 * 
+		 * Punto p=new Punto();
+		 * 
+		 * 
+		 * 
+		 * }
+		 */
 
 		System.out.println(p);
 		System.out.println(p2);

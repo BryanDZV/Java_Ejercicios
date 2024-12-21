@@ -62,7 +62,7 @@ public class RepresentarPuntos {
 				
 			}
 			if (p.getX()>0 && p.getY()<0) {
-				System.out.println("mundo");
+				System.out.println("humano");
 				p.setColor(Color.ORANGE);
 				
 			}

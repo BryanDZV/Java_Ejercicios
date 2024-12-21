@@ -6,6 +6,18 @@ public class Circulo {
 
 	public Punto getCentro() {
 		return centro;
+				}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * 1-siempre existe un constructor por defecto que coge los atributos
+		 * 
+		 * 
+		 */
+
+		// private double radio;
+		// private Punto centro;
+
 	}
 
 	public void setCentro(Punto centro) {
