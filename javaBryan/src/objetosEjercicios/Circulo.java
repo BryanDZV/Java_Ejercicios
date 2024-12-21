@@ -8,11 +8,10 @@ public class Circulo {
 		 * 1-siempre existe un constructor por defecto que coge los atributos
 		 * 
 		 * 
-		 * */
-		
-		 private double radio;
-		 private Punto centro;
-		
+		 */
+
+		// private double radio;
+		// private Punto centro;
 
 	}
 
