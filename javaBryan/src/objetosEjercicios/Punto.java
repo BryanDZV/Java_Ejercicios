@@ -8,6 +8,27 @@ public class Punto {
 	private double x;
 	private double y;
 	private Color color;
+	private double movX; //Variación de x al llamar a mover
+	private double movY; //Variación de y al llamar a mover
+	
+	
+	public void mover() {
+		x=x+movX;
+		y=y+movY;
+	}
+	
+	public Punto(double x, double y) {
+		this.x = x;
+		this.y = y;
+		this.color = Color.BLACK;
+	}
+	
+	public Punto(double x, double y, Color color) {
+		this.x = x;
+		this.y = y;
+		this.color = color;
+	}
+
 
 	public double getX() {
 		return x;
@@ -32,43 +53,36 @@ public class Punto {
 	public void setColor(Color color) {
 		this.color = color;
 	}
-
-	public Punto(double x, double y) {
-		this.x = x;
-		this.y = y;
-		this.color = Color.BLACK;
+	
+	
+	public double getMovX() {
+		return movX;
 	}
 
-	public Punto(double x, double y, Color color) {
-		this.x = x;
-		this.y = y;
-		this.color = color;
+	public void setMovX(double movX) {
+		this.movX = movX;
 	}
+
+	public double getMovY() {
+		return movY;
+	}
+
+	public void setMovY(double movY) {
+		this.movY = movY;
+	}
+
+
+
 
 	public String toString() {
 		return "Punto [x=" + x + ", y=" + y + ", color=" + color + "]";
 	}
 
+
 	public static void main(String[] args) {
-
-		Punto p = new Punto(3, 7, Color.GREEN);
-		Punto p2 = new Punto(5, 1);
-		// TODO Auto-generated method stub
-
-		double x;
-		double y;
-		Color color;
-
-		/*
-		 * public static void main (String[] args) {
-		 * 
-		 * Punto p=new Punto();
-		 * 
-		 * 
-		 * 
-		 * }
-		 */
-
+		Punto p=new Punto(3,7,Color.GREEN);
+		Punto p2=new Punto(5,1);
+		
 		System.out.println(p);
 		System.out.println(p2);
 	}
@@ -76,19 +90,19 @@ public class Punto {
 	public void dibujar() {
 		StdDraw.setPenRadius(0.02);
 		StdDraw.setPenColor(color);
-		StdDraw.point(x, y);
+		StdDraw.point(x,y);
 	}
 
 	public double distancia(Punto otro) {
-
-		return Math.sqrt(Math.pow(x - otro.x, 2) + Math.pow(y - otro.y, 2));
+		
+		return Math.sqrt(Math.pow(x-otro.x,2)+Math.pow(y-otro.y,2));
 	}
 
 	public Punto puntoMedio(Punto otro) {
-		// TODO Auto-generated method stub
-
-		Punto m = new Punto((x + otro.x) / 2, (y + otro.y) / 2);
-
+		Punto m=new Punto((x+otro.x)/2,(y+otro.y)/2);
 		return m;
 	}
 }
+
+
+
