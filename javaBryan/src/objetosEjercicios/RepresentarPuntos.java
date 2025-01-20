@@ -11,7 +11,7 @@ public class RepresentarPuntos {
 		StdDraw.setXscale(-100, 100);
 		StdDraw.setYscale(-100, 100);
 		StdDraw.enableDoubleBuffering();
-//puntos 
+		// puntos
 		Punto p = new Punto(50, 50, Color.GREEN);
 		Punto p2 = new Punto(0, 0);
 
@@ -42,31 +42,29 @@ public class RepresentarPuntos {
 			p2.dibujar();
 			p.setX(StdDraw.mouseX());
 			p.setY(StdDraw.mouseY());
-			
-			//cuadrante
-			
-			if (p.getX()<0 && p.getY()>0) {
+
+			// cuadrante
+
+			if (p.getX() < 0 && p.getY() > 0) {
 				System.out.println("hola");
 				p.setColor(Color.RED);
-				
-				
+
 			}
-			if (p.getX()<0 && p.getY()<0) {
+			if (p.getX() < 0 && p.getY() < 0) {
 				System.out.println("adios");
 				p.setColor(Color.GREEN);
-				
+
 			}
-			if (p.getX()>0 && p.getY()>0) {
+			if (p.getX() > 0 && p.getY() > 0) {
 				System.out.println("mundo");
 				p.setColor(Color.YELLOW);
-				
+
 			}
-			if (p.getX()>0 && p.getY()<0) {
+			if (p.getX() > 0 && p.getY() < 0) {
 				System.out.println("humano");
 				p.setColor(Color.ORANGE);
-				
+
 			}
-			
 
 			StdDraw.show();
 			StdDraw.pause(80);
