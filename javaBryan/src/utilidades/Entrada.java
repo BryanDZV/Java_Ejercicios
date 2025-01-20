@@ -18,12 +18,12 @@ public class Entrada {
 		int valor = Integer.parseInt(inicializar());
 		return valor;
 	}
-
+	
 	public static double real() {
 		double valor = Double.parseDouble(inicializar());
 		return valor;
 	}
-
+	
 	public static String cadena() {
 		String valor = inicializar();
 		return valor;
