@@ -11,7 +11,7 @@ public class RepresentarPuntos {
 		StdDraw.setXscale(-100, 100);
 		StdDraw.setYscale(-100, 100);
 		StdDraw.enableDoubleBuffering();
-//puntos 
+			//puntos 
 		Punto p = new Punto(50, 50, Color.GREEN);
 		Punto p2 = new Punto(0, 0);
 
@@ -22,10 +22,11 @@ public class RepresentarPuntos {
 			// distancia
 			StdDraw.text(0, 90, "Distancia: " + dist);
 			// distancia media
-			/*
+			/*StdDraw.text(double x, double y, String text);
 			 * StdDraw.text((p.getX()+p2.getX())/2, (p.getY()+p2.getY())/2, "Distancia: " +
 			 * dist);
 			 */
+			
 			// distancia media 2 metodo
 
 			Punto medio = p.puntoMedio(p2);
@@ -34,7 +35,7 @@ public class RepresentarPuntos {
 
 			// linea
 			StdDraw.setPenColor(Color.BLUE);
-			StdDraw.setPenRadius(0.01);
+			StdDraw.setPenRadius(0.01);//grosos del pen
 			StdDraw.line(p.getX(), p.getY(), p2.getX(), p2.getY());
 
 			// puntos
