@@ -2,6 +2,8 @@ package conceptosBasicosEjercicios;
 
 import java.time.LocalTime;
 
+import javax.management.RuntimeErrorException;
+
 public class FuncionesConceptos {
 
 	public static void main(String[] args) {
@@ -678,5 +680,119 @@ public class FuncionesConceptos {
 		}
 		return resultado;
 	}// FIN COMPRUEBA
+	
+	
+	public static void mostrarMatriz(int[][] numeros) {
+		for (int i = 0; i < numeros.length; i++) {
+			/*
+			 * fila i
+			 * pal.lenght aqui te dice la filas en matrices
+			 * 
+			 * */
+		
+			for (int j = 0; j < numeros[i].length; j++) {
+				//fila i columna j
+				System.out.println(numeros[i][j]);//tras cada fila
+			}
+			
+		}
+		
+	}//fin
+	
+	public static void mostrarMatriz(String[][] m) {
+		for (int i = 0; i < m.length; i++) {
+			//fila i
+			for (int j = 0; j < m[i].length; j++) {
+				//fila i columna j
+				System.out.print(m[i][j]+" ");
+			}
+			System.out.println(); //tras cada fila
+		}
+		
+	}
+	
+	/*public static void mostrarMatriz(int[][] m) {
+		for (int i = 0; i < m.length; i++) {
+			//fila i
+			for (int j = 0; j < m[i].length; j++) {
+				//fila i columna j
+				System.out.printf("%4d ",m[i][j]);
+			}
+			System.out.println(); //tras cada fila
+		}
+	}*/
+	
+	public static void mostrarMatriz(double[][] m) {
+		for (int i = 0; i < m.length; i++) {
+			//fila i
+			for (int j = 0; j < m[i].length; j++) {
+				//fila i columna j
+		        if (m[i][j] == (long) m[i][j]) {
+		            // Si el número no tiene parte decimal, lo imprimes como entero
+		            System.out.print((long) m[i][j]+" "); 
+		        } else {
+		            // Si tiene parte decimal, lo imprimes con decimales
+		            System.out.println(m[i][j]+" ");
+		        }
+			}
+			System.out.println(); //tras cada fila
+		}
+	}
+	
+	public static int[] extraerFila(int[][] m, int indFila) {
+		if (indFila < 0 || indFila > m.length - 1)
+			throw new IllegalArgumentException("La fila " + indFila + " no existe en la matriz");
+
+		return m[indFila];
+	}
+	
+	public static int[] extraerColumna(int[][] m, int indColumna) {
+		if (indColumna < 0 || indColumna > m[0].length - 1)
+			throw new IllegalArgumentException("La columna " + indColumna + " no existe en la matriz");
+	
+		int[] arrayColumna = new int[m.length];
+		for (int i = 0; i < m.length; i++) {
+			arrayColumna[i] = m[i][indColumna];
+		}
+		return arrayColumna;
+	}
+	
+	public static double[][] sumarMatrices(double[][] m1, double[][] m2) {
+		if (m1.length != m2.length || m1[0].length != m2[0].length)
+			throw new RuntimeException("No se pueden sumar matrices de diferente dimensión");
+		
+		double[][] res = new double[m1.length][m1[0].length];//creamos matriz resultado de igual dimensión
+		
+		for (int i = 0; i < res.length; i++) {
+			for (int j = 0; j < res[i].length; j++) {
+				res[i][j]=m1[i][j]+m2[i][j];
+			}
+		}
+		
+		return res;
+	}
+	
+	
+	public static double[][] restaMatrices(double[][] m1, double[][] m2) {
+		if (m1.length != m2.length || m1[0].length != m2[0].length)
+			throw new RuntimeException("No se pueden restar matrices de diferente dimensión");
+		
+		double[][] res = new double[m1.length][m1[0].length];//creamos matriz resultado de igual dimensión
+		
+		for (int i = 0; i < res.length; i++) {
+			for (int j = 0; j < res[i].length; j++) {
+				res[i][j]=m1[i][j]-m2[i][j];
+			}
+		}
+		
+		return res;
+	}
+	
+	
+	
+	
+
+
+
 
 }// clase ENGLOBA A TODAS SIEMPRE

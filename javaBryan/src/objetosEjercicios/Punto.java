@@ -101,3 +101,59 @@ public class Punto {
 		return m;
 	}
 }
+
+	public static void main(String[] args) {
+
+		Punto p = new Punto(3, 7, Color.GREEN);
+		Punto p2 = new Punto(5, 1);
+
+		double x;
+		double y;
+		Color color;
+
+		/*
+		 * public static void main (String[] args) {
+		 * 
+		 * Punto p=new Punto();
+		 * 
+		 * 
+		 * 
+		 * }
+		 */
+
+
+		Punto p=new Punto(3,7,Color.GREEN);
+		Punto p2=new Punto(5,1);
+		
+
+		System.out.println(p);
+		System.out.println(p2);
+	}
+
+	/* METODOS */
+//DIBUJAR
+	public void dibujar() {
+		StdDraw.setPenRadius(0.02);
+		StdDraw.setPenColor(color);
+		StdDraw.point(x,y);
+	}
+
+//DSITANCIA
+	public double distancia(Punto otro) {
+
+		return Math.sqrt(Math.pow(x - otro.x, 2) + Math.pow(y - otro.y, 2));// SQRT raiz cuadrada
+
+		
+		return Math.sqrt(Math.pow(x-otro.x,2)+Math.pow(y-otro.y,2));
+
+	}
+
+//DISTANCIA MEDIA
+	public Punto puntoMedio(Punto otro) {
+		Punto m=new Punto((x+otro.x)/2,(y+otro.y)/2);
+		return m;
+	}
+}
+
+
+

@@ -3,7 +3,7 @@ package conceptosBasicosEjercicios;
 public class Ejercicio52_67 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// void no devuelve nada
 
 		System.out.println("inserta una frase");
 		// String frase = Entrada.cadena();
