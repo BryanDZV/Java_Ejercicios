@@ -32,7 +32,12 @@ public class CazadorDePuntos {
 		
 		//Creamos lazo que se moverá con el ratón
 		Circulo lazo=new Circulo(0,0,20);
-		lazo.getCentro().setColor(Color.BLUE);
+		lazo.getCentro().setColor(
+Color.BLUE
+);
+		
+		long inicio=System.currentTimeMillis();
+		Long tiempoTranscurrido=null;
 		
 		while(true){
 			StdDraw.clear();
@@ -42,7 +47,9 @@ public class CazadorDePuntos {
 			lazo.getCentro().setY(StdDraw.mouseY());
 			lazo.dibujar(false);
 			
-			StdDraw.setPenColor(Color.BLUE);
+			StdDraw.setPenColor(
+Color.BLUE
+);
 			StdDraw.text(0,95,"Puntos: "+puntos.size());
 			
 			//Eliminamos puntos dentro del lazo
@@ -52,6 +59,14 @@ public class CazadorDePuntos {
 				    StdAudio.playInBackground("soniquete.wav");
 				}
 			}
+			
+			if (puntos.size()==0) { //Informamos del tiempo transcurrido
+				if (tiempoTranscurrido==null) {
+					long fin=System.currentTimeMillis();
+					tiempoTranscurrido=(fin-inicio)/1000;//En segundos
+				}
+				StdDraw.text(0,85,"Has tardado: "+tiempoTranscurrido+" segundos");
+			}
 
 			for (int i = 0; i < puntos.size(); i++) {
 				controlarRebote(puntos.get(i));
@@ -60,7 +75,9 @@ public class CazadorDePuntos {
 			}
 			
 			
-			StdDraw.show();
+			
+StdDraw.show
+();
 			StdDraw.pause(50);
 		}
 
@@ -86,4 +103,4 @@ public class CazadorDePuntos {
 		}
 		
 	}
-}
+} 

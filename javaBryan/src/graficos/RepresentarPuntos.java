@@ -56,6 +56,11 @@ public class RepresentarPuntos {
 			StdDraw.show();
 			StdDraw.pause(50);
 			
+			/*numeros ciclicos con resto
+			 * 4%90
+			 * los numeros estaran entre 4 y 89
+			 * */
+			
 		}
 
 	}
