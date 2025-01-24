@@ -3,7 +3,7 @@ package main;
 import java.awt.Color;
 import java.util.Random;
 
-import objetos.Puntos;
+import personajes.Puntos;
 import utilidades.StdDraw;
 
 public class PuntosEnMovimiento {
@@ -21,11 +21,13 @@ public class PuntosEnMovimiento {
 		/* crear un objeto punto en cantidades */
 		// guardar en array
 
-		Puntos[] puntos = new Puntos[20];
-
+		Puntos[] puntos = new Puntos[5];
+		
+		
+//BUCLE PARA CREAR BOLAS
 		for (int i = 0; i < puntos.length; i++) {
-			// hago que mi color sea diferente en
-			// cada nuevo rgb (r,r,r)
+			// hago que mi color sea diferente en cada nuevo rgb (r,r,r)
+			 
 			Color colorAleatorio = new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256));
 			puntos[i] = new Puntos(0, 0, colorAleatorio);
 			// le voy asignando nuevas posiciones
@@ -35,27 +37,38 @@ public class PuntosEnMovimiento {
 		}
 
 		/*
-		 * BUCLE para representar ifinitamente 
-		 * porque stdDraw va por fotogramas
-		 * 
-		 * y el que realmente cre el movimiento
+		 * BUCLE para REPRESENTAR ifinitamente  porque stdDraw
+		 *  va por fotogramas y el que realmente creE el movimiento
 		 */
 
 		while (true) {
 			StdDraw.clear();
-			// BUCLE PARA REPRESENTAR EL ARRAY PUNTOS
+			// BUCLE PARA RECORRER EL ARRAY PUNTOS
 			for (int i = 0; i < puntos.length; i++) {
+				controlarRebote(puntos[i]);
 				puntos[i].mover();
 				puntos[i].dibujar();
 
 			}
 
-			// llamo a mi metodo que dibuja para cada punto
+			// llamo a mi metodo que dibuja y mover para cada punto
 
 			StdDraw.show();
-			StdDraw.pause(300);
+			StdDraw.pause(50);
 		}
 
+	}
+	
+	//metodo privado de rebote
+	private static void controlarRebote(Puntos p) {
+		//Detectar límites de la ventana
+		if (Math.abs(p.getX()) >= 100) { //izq. o drecha
+			p.setMovX(-p.getMovX());
+		}
+		if (Math.abs(p.getY()) >= 100) { //arriba o derecha
+			p.setMovY(-p.getMovY());
+		}
+		
 	}
 
 }

@@ -1,4 +1,4 @@
-package objetos;
+package personajes;
 
 import java.awt.Color;
 
@@ -12,8 +12,11 @@ public class Puntos {
 
 	private double x;
 	private double y;
+	private Color color;
 	private double movX;
+	private double movY;
 
+//geter y setter movx
 	public double getMovX() {
 		return movX;
 	}
@@ -21,6 +24,8 @@ public class Puntos {
 	public void setMovX(double movX) {
 		this.movX = movX;
 	}
+
+//getter y stter movy
 
 	public double getMovY() {
 		return movY;
@@ -30,10 +35,7 @@ public class Puntos {
 		this.movY = movY;
 	}
 
-	private double movY;
-	private Color color;
-
-	/* constructor de parametros */
+	/* constructor de 3 parametros */
 	public Puntos(int x, int y, Color color) {
 
 		this.x = x;
@@ -85,8 +87,8 @@ public class Puntos {
 		return "Puntos [x=" + x + ", y=" + y + ", color=" + color + "]";
 	}
 
-	/* geter y setter */
-	/* geter y setter */
+	/* geter y setter x */
+
 	public double getX() {
 		return x;
 	}
@@ -95,6 +97,7 @@ public class Puntos {
 		this.x = x;
 	}
 
+	/* geter y setter y */
 	public double getY() {
 		return y;
 	}
@@ -103,6 +106,7 @@ public class Puntos {
 		this.y = y;
 	}
 
+	//getter color stter color
 	public Color getColor() {
 		return color;
 	}
@@ -111,33 +115,31 @@ public class Puntos {
 		this.color = color;
 	}
 
+	//METODO MOVER EN EJES X E Y
 	public void mover() {
 		/* va asigando a la x las nuevas x */
 		this.x = x + movX;
 		this.y = y + movY;
 
 	}
-
+//METODO CALCLA D ENTRE DOS  PUNTOS POR COORDENADAS
 	public double distancia(Puntos otroPunto) {
 		/* distancia entre los dos puntos */
 		/*
-		 * El Teorema de Pitagoras afirma que
-		 *  el valor de la hipotenusa o la distancia
-		 * entre A y B ;
-		 * d(A(x1,y1),b(x2,y2))=raiz(x2-x1)^2+(y2-y1)^2 es
+		 * El Teorema de Pitagoras afirma que el valor de la hipotenusa o la distancia
+		 * entre A y B ; d(A(x1,y1),b(x2,y2))=raiz(x2-x1)^2+(y2-y1)^2 es
 		 */
-		return Math.sqrt(Math.pow(this.x-otroPunto.x,2)+ Math.pow(this.y-otroPunto.y,2));
-		
-		
+		return Math.sqrt(Math.pow(this.x - otroPunto.x, 2) + Math.pow(this.y - otroPunto.y, 2));
 
 	}
-//metodo que devuelve UNA CLASE AQUI PUNTOSPUEDE SER DOUBLE...AQUI PUNTOS es valido 
+
+//metodo que devuelve UNA CLASE 
+	//AQUI PUNTOSPUEDE SER DOUBLE...AQUI PUNTOS es valido 
 	public Puntos puntoMedio(Puntos otroPunto) {
 		Puntos m = new Puntos((this.x + otroPunto.x) / 2, (this.y + otroPunto.y) / 2);
 		return m;
 
 	}
 
-	/* geter y setter */
-	/* geter y setter */
+
 }// todo dentro de la clase

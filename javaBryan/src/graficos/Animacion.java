@@ -51,7 +51,7 @@ public class Animacion {
 				dy2=-dy2;
 			
 			StdDraw.show();
-			StdDraw.pause(100);
+			StdDraw.pause(20);
 			
 		}
 

@@ -9,7 +9,6 @@ import java.util.Random;
 import objetos.Circulo;
 import objetos.Punto;
 import utilidades.Func;
-import utilidades.StdAudio;
 import utilidades.StdDraw;
 
 public class CazadorDePuntos {
@@ -32,12 +31,7 @@ public class CazadorDePuntos {
 		
 		//Creamos lazo que se moverá con el ratón
 		Circulo lazo=new Circulo(0,0,20);
-		lazo.getCentro().setColor(
-Color.BLUE
-);
-		
-		long inicio=System.currentTimeMillis();
-		Long tiempoTranscurrido=null;
+		lazo.getCentro().setColor(Color.BLUE);
 		
 		while(true){
 			StdDraw.clear();
@@ -47,25 +41,13 @@ Color.BLUE
 			lazo.getCentro().setY(StdDraw.mouseY());
 			lazo.dibujar(false);
 			
-			StdDraw.setPenColor(
-Color.BLUE
-);
+			StdDraw.setPenColor(Color.BLUE);
 			StdDraw.text(0,95,"Puntos: "+puntos.size());
 			
 			//Eliminamos puntos dentro del lazo
 			for (int i = 0; i < puntos.size(); i++) {
-				if (lazo.contiene(puntos.get(i))) {
+				if (lazo.contiene(puntos.get(i)))
 					puntos.remove(i);
-				    StdAudio.playInBackground("soniquete.wav");
-				}
-			}
-			
-			if (puntos.size()==0) { //Informamos del tiempo transcurrido
-				if (tiempoTranscurrido==null) {
-					long fin=System.currentTimeMillis();
-					tiempoTranscurrido=(fin-inicio)/1000;//En segundos
-				}
-				StdDraw.text(0,85,"Has tardado: "+tiempoTranscurrido+" segundos");
 			}
 
 			for (int i = 0; i < puntos.size(); i++) {
@@ -75,9 +57,7 @@ Color.BLUE
 			}
 			
 			
-			
-StdDraw.show
-();
+			StdDraw.show();
 			StdDraw.pause(50);
 		}
 
@@ -103,4 +83,4 @@ StdDraw.show
 		}
 		
 	}
-} 
+}
