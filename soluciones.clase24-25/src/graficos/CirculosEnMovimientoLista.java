@@ -6,13 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import objetos.Circulo;
 import objetos.Punto;
 import utilidades.Func;
-import utilidades.StdAudio;
 import utilidades.StdDraw;
 
-public class CazadorDePuntos {
+public class CirculosEnMovimientoLista {
 
 	public static void main(String[] args) {
 		// Establecer sistema de coordenadas
@@ -22,7 +20,8 @@ public class CazadorDePuntos {
 		
 		Random r=new Random();
 		
-		int numeroPuntosIniciales=10;
+		int numeroPuntosIniciales=5;
+		int maximoPuntosEnVentana=400;
 		
 		List<Punto> puntos=new ArrayList<Punto>();
 		for (int i = 0; i < numeroPuntosIniciales; i++) {
@@ -30,39 +29,13 @@ public class CazadorDePuntos {
 			puntos.add(p);
 		}
 		
-		//Creamos lazo que se moverá con el ratón
-		Circulo lazo=new Circulo(0,0,20);
-		lazo.getCentro().setColor(Color.BLUE);
-		
-		long inicio=System.currentTimeMillis();
-		Long tiempoTranscurrido=null;
 		
 		while(true){
 			StdDraw.clear();
 			
-			//cambiamos coordenadas del centro del círculo lazo
-			lazo.getCentro().setX(StdDraw.mouseX());
-			lazo.getCentro().setY(StdDraw.mouseY());
-			lazo.dibujar(false);
-			
 			StdDraw.setPenColor(Color.BLUE);
 			StdDraw.text(0,95,"Puntos: "+puntos.size());
-			
-			//Eliminamos puntos dentro del lazo
-			for (int i = 0; i < puntos.size(); i++) {
-				if (lazo.contiene(puntos.get(i))) {
-					puntos.remove(i);
-				    StdAudio.playInBackground("soniquete.wav");
-				}
-			}
-			
-			if (puntos.size()==0) { //Informamos del tiempo transcurrido
-				if (tiempoTranscurrido==null) {
-					long fin=System.currentTimeMillis();
-					tiempoTranscurrido=(fin-inicio)/1000;//En segundos
-				}
-				StdDraw.text(0,85,"Has tardado: "+tiempoTranscurrido+" segundos");
-			}
+			StdDraw.text(0,85,"Pulse el ratón para crear puntos");
 
 			for (int i = 0; i < puntos.size(); i++) {
 				controlarRebote(puntos.get(i));
@@ -70,6 +43,28 @@ public class CazadorDePuntos {
 				puntos.get(i).dibujar();
 			}
 			
+			//Creamos puntos cuando el ratón está pulsado
+			if (StdDraw.isMousePressed()) {
+				Punto p=crearPuntoAleatorio(StdDraw.mouseX(),StdDraw.mouseY());
+				puntos.add(p);
+			}
+			
+			if (puntos.size() < maximoPuntosEnVentana) {
+				//Comprobar si hay dos puntos cerca (los nuevos puntos los añadimos a una nueva lista)
+				List<Punto> nuevos=new ArrayList<Punto>();
+				for (int i = 0; i < puntos.size()-1; i++) {
+					for (int otro = i+1; otro < puntos.size(); otro++) {
+						if (puntos.get(i).distancia(puntos.get(otro)) < 2) {
+							//Añadimos nuevo punto por colision de dos puntos
+							Punto medio=puntos.get(i).puntoMedio(puntos.get(otro));
+							nuevos.add(crearPuntoAleatorio(medio.getX(),medio.getY()));
+						}
+					}
+				}
+				//Añadimos los puntos que se han creado por colisión al resto de puntos
+				if (puntos.size()+nuevos.size() <= maximoPuntosEnVentana)
+					puntos.addAll(nuevos);
+			}
 			
 			StdDraw.show();
 			StdDraw.pause(50);
