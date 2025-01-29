@@ -36,7 +36,7 @@ public class Puntos {
 	}
 
 	/* constructor de 3 parametros */
-	public Puntos(int x, int y, Color color) {
+	public Puntos(double x, double y, Color color) {
 
 		this.x = x;
 		this.y = y;

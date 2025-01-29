@@ -16,7 +16,7 @@ public class RepresentarPuntos {
 		// Configurar el lienzo
 		// StdDraw.setCanvasSize(550, 500); // Tamaño de la ventana (opcional)
 		StdDraw.setXscale(-100, 100);// Escala en el eje X
-	
+
 		StdDraw.setYscale(-100, 100); // Escala en el eje Y
 		StdDraw.enableDoubleBuffering();
 
@@ -34,29 +34,30 @@ public class RepresentarPuntos {
 			StdDraw.setPenRadius(0.010);
 			StdDraw.line(p1.getX(), p1.getY(), p.getX(), p.getY());
 			// mostrar la distancia entre los puntos
-			double dist=p.distancia(p1);//calculado con mi formula
+			double dist = p.distancia(p1);// calculado con mi formula
 			StdDraw.setPenColor(Color.pink);
-		
-			
-			//punto medio
-			Puntos medio=p.puntoMedio(p1);
-			//pongo texto en el punto medio
-			StdDraw.text(medio.getX(),medio.getY(),String.valueOf(Func.redondear(dist, 2)));
-			
-			//DIBUJAR CUADRANTES LINEAS
-			
+
+			// punto medio
+			Puntos medio = p.puntoMedio(p1);
+			// pongo texto en el punto medio
+			StdDraw.text(medio.getX(), medio.getY(), String.valueOf(Func.redondear(dist, 2)));
+
+			// DIBUJAR CUADRANTES LINEAS
+
 			StdDraw.setPenColor(StdDraw.BLACK);
-			  StdDraw.line(-100, 0, 100, 0); // Línea horizontal en Y = 0
+			StdDraw.line(-100, 0, 100, 0); // Línea horizontal en Y = 0
 			StdDraw.setPenColor(StdDraw.BLUE);
-		     StdDraw.line(0, -100, 0, 100); // Línea vertical en X = 0
-		     
-		    //CAMABIAR DE COLOR SEGUN CUADRANTES el punto p
-		     if (p.getX()>0 && p.getY()>0) {
-		    	 p.setColor(Color.yellow);
-		 StdDraw.text(45, 45, "eres amarillo");
-					
-				}
-		   
+			StdDraw.line(0, -100, 0, 100); // Línea vertical en X = 0
+
+			// CAMABIAR DE COLOR SEGUN CUADRANTES el punto p
+			if (p.getX() > 0 && p.getY() > 0) {
+				p.setColor(Color.yellow);
+				StdDraw.text(45, 45, "eres amarillo");
+			}
+			if (p.getX() < 0 && p.getY() > 0) {
+				p.setColor(Color.BLUE);
+
+			}
 
 			// llamo a mi metodo que dibuja para cada punto
 			p.dibujar();

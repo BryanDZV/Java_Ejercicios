@@ -30,7 +30,8 @@ public class PuntosEnMovimiento {
 			 
 			Color colorAleatorio = new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256));
 			puntos[i] = new Puntos(0, 0, colorAleatorio);
-			// le voy asignando nuevas posiciones
+			// le voy asignando nuevas posiciones(para eso creo nuevos tributos y nueva
+			//funcion en punto)
 			puntos[i].setMovX(r.nextDouble(-6, 6));// (-6,6)entre que rango ase aleatoriosincluido e excluido
 			puntos[i].setMovY(r.nextDouble(-6, 6));
 
@@ -38,20 +39,21 @@ public class PuntosEnMovimiento {
 
 		/*
 		 * BUCLE para REPRESENTAR ifinitamente  porque stdDraw
-		 *  va por fotogramas y el que realmente creE el movimiento
+		 *  va por fotogramas y el que realmente creA el movimiento
 		 */
 
 		while (true) {
 			StdDraw.clear();
 			// BUCLE PARA RECORRER EL ARRAY PUNTOS
 			for (int i = 0; i < puntos.length; i++) {
-				controlarRebote(puntos[i]);
+				// llamo a mi metodo que dibuja y mover Y REBOTA para cada punto
+				controlarRebote(puntos[i]);//CREO UN NUEVO METODO PARA REBOTE AQUI 
 				puntos[i].mover();
 				puntos[i].dibujar();
 
 			}
 
-			// llamo a mi metodo que dibuja y mover para cada punto
+			
 
 			StdDraw.show();
 			StdDraw.pause(50);
