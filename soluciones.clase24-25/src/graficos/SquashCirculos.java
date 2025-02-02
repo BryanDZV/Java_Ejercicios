@@ -14,10 +14,10 @@ import utilidades.Func;
 import utilidades.StdAudio;
 import utilidades.StdDraw;
 
-public class Squash {
-	static List<Punto> bolas=crearBolas(5);
+public class SquashCirculos {
+	static List<Circulo> bolas=crearBolas(5);
 	static Raqueta raq=new Raqueta(0,-95,40);
-	static Punto bolaEnJuego=null;
+	static Circulo bolaEnJuego=null;
 	static Long tiempoNuevaBola=System.currentTimeMillis()+5000;//dentro de 3 segundos
 
 	public static void main(String[] args) {
@@ -46,12 +46,15 @@ public class Squash {
 				if (controlarRebote()) {
 					bolaEnJuego=null;//Bola perdida
 					bolas.remove(0);//Borramos primera bola de la lista
+					//Incrementamos dificultad subimos raqueta y la acortamos
+					raq.getExtIzq().setY(raq.getExtIzq().getY()+25);
+					raq.setLargo(raq.getLargo()*0.8);
 					if (bolas.size()>0)//Aún quedan bolas
 						tiempoNuevaBola=System.currentTimeMillis()+5000;
 				}
 				else {
-					bolaEnJuego.mover();
-					bolaEnJuego.dibujar();
+					bolaEnJuego.getCentro().mover();
+					bolaEnJuego.dibujar(false);
 				}
 			}
 			
@@ -69,20 +72,22 @@ public class Squash {
 
 	}
 
-	private static List<Punto> crearBolas(int numeroPelotas) {
-		Color [] colores= {Color.ORANGE,Color.GREEN,Color.RED,Color.CYAN};
-		List<Punto> bolas=new ArrayList<Punto>();
+	private static List<Circulo> crearBolas(int numeroPelotas) {
+		Color [] colores= {Color.BLUE,Color.GREEN,Color.RED};
+		List<Circulo> bolas=new ArrayList<Circulo>();
 		Random r=new Random(); //Pare crear posiciones y movimientos aleatorios de cada bola
 		
 		for (int i = 0; i < numeroPelotas; i++) {
-			Punto p=new Punto(0, 95, colores[i%colores.length]);
+			double radio=r.nextDouble(5,15);
+			Circulo c=new Circulo(0,100-radio-5, radio);
+			c.getCentro().setColor(colores[i%colores.length]);
 			if (r.nextBoolean())
-				p.setMovX(r.nextDouble(2,5));//Hacia la derecha
+				c.getCentro().setMovX(r.nextDouble(2,5));//Hacia la derecha
 			else
-				p.setMovX(-r.nextDouble(2,5));//Hacia la izquierda
-			p.setMovY(-r.nextDouble(2,5));//Hacia la abajo
+				c.getCentro().setMovX(-r.nextDouble(2,5));//Hacia la izquierda
+			c.getCentro().setMovY(-r.nextDouble(2,5));//Hacia la abajo
 			
-			bolas.add(p);
+			bolas.add(c);
 		}
 		
 		
@@ -94,18 +99,25 @@ public class Squash {
 		//false en caso contrario
 		boolean bolaPerdida=false;
 		//Detectar límites de la ventana
-		if (Math.abs(bolaEnJuego.getX()) >= 100) { //izq. o drecha
+		if (bolaEnJuego.getCentro().getX() + bolaEnJuego.getRadio() >= 100) { //dcha
 			StdAudio.playInBackground("soniquete.wav");
-			bolaEnJuego.setMovX(-bolaEnJuego.getMovX());
+			bolaEnJuego.getCentro().setMovX(-bolaEnJuego.getCentro().getMovX());
 		}
-		if (bolaEnJuego.getY() >= 100) { //arriba 
-			bolaEnJuego.setMovY(-bolaEnJuego.getMovY());
+		if (bolaEnJuego.getCentro().getX() - bolaEnJuego.getRadio() <= -100) { //izq
+			StdAudio.playInBackground("soniquete.wav");
+			bolaEnJuego.getCentro().setMovX(-bolaEnJuego.getCentro().getMovX());
+		}
+		if (bolaEnJuego.getCentro().getY() + bolaEnJuego.getRadio() >= 100) { //arriba
+			StdAudio.playInBackground("soniquete.wav");
+			bolaEnJuego.getCentro().setMovY(-bolaEnJuego.getCentro().getMovY());
 		}
 		
-		if (Math.abs(bolaEnJuego.getY()-raq.getExtIzq().getY())<4) {//Pelota a la altura de la raqueta
-			if (bolaEnJuego.getX()>=raq.getExtIzq().getX()&&bolaEnJuego.getX()<=raq.getExtIzq().getX()+raq.getLargo())
+		if (Math.abs((bolaEnJuego.getCentro().getY())-bolaEnJuego.getRadio()-raq.getExtIzq().getY())<4) {//Pelota a la altura de la raqueta
+			if (bolaEnJuego.getCentro().getX()>=raq.getExtIzq().getX()&&bolaEnJuego.getCentro().getX()<=raq.getExtIzq().getX()+raq.getLargo()) {
 				//toca raqueta 
-				bolaEnJuego.setMovY(-bolaEnJuego.getMovY());
+				StdAudio.playInBackground("soniquete.wav");
+				bolaEnJuego.getCentro().setMovY(-bolaEnJuego.getCentro().getMovY());
+			}
 			else
 				//NO toca raqueta 
 				bolaPerdida=true;
