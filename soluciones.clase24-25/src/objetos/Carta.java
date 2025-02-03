@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import utilidades.StdDraw;
+
 public class Carta implements Comparable<Carta>{
 	private Palo palo;
 	private int numero;//1..7, 10..12
@@ -49,6 +51,11 @@ public class Carta implements Comparable<Carta>{
 		System.out.println(mano);
 		mano.sort(null);
 		System.out.println(mano);
+		
+		Carta c=new Carta(Palo.BASTOS, 3);
+		Carta c2=new Carta(Palo.OROS, 4);
+		
+		System.out.println(c.compareTo(c2));
 
 		
 		
@@ -101,6 +108,34 @@ public class Carta implements Comparable<Carta>{
 		else //Distinto palo
 			return comp;
 		
+		
+	}
+
+	public void dibujar(double xCentro,double yCentro,double ancho, double alto) {
+		String rutaImagen="imagenesBaraja/";
+		String letraPalo="";
+		switch (getPalo()) {
+		case OROS:
+			letraPalo="o";
+			break;
+		case COPAS:
+			letraPalo="c";
+			break;
+		case ESPADAS:
+			letraPalo="e";
+			break;
+		case BASTOS:
+			letraPalo="b";
+			break;
+		}
+		int num=0;
+		num=this.getNumero();
+		if (num>7)
+			num=num-2; //12-->10  11-->9  10-->8
+		rutaImagen="imagenesBaraja/"+letraPalo+num+".png";
+		
+		StdDraw.picture(xCentro, yCentro, rutaImagen, ancho, alto);
+			
 		
 	}
 
