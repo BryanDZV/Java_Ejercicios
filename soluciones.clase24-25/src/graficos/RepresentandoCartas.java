@@ -1,5 +1,6 @@
 package graficos;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -18,11 +19,19 @@ public class RepresentandoCartas {
 		StdDraw.enableDoubleBuffering();
 		
 		int margenIzquierdo=-90;
-		int margenSuperior=70;
+		int margenSuperior=75;
 		
+		String mensajeAlUsuario="Pulse ratón para extraer cartas...";
 		List<Carta> baraja=Carta.crearBarajaEspaniola();
+		List <Carta> mano=null;
+		
+		
 		for (;;) {
 			StdDraw.clear();
+			
+			
+			StdDraw.text(0, -90, mensajeAlUsuario);
+			
 			for (int i = 0; i < baraja.size(); i++) {
 				int fila=0;
 				switch(baraja.get(i).getPalo()) {
@@ -48,18 +57,25 @@ public class RepresentandoCartas {
 			
 			if (clickRaton()) {
 				try {
-					List <Carta> mano=Carta.extraerMano(baraja, 7);
+					mano=Carta.extraerMano(baraja, 7);
+					mano.sort(null); //Ordenamos las cartas servidas
 					System.out.println(mano);
 				} catch (RuntimeException e) {
-					System.out.println("No hay más cartas.");					
-					System.out.println(e.getMessage());
+					mensajeAlUsuario="No hay cartas suficientes para extraer.";
+					mano=null;
+				}
+			}
+			
+			if (mano!=null) {
+				int margenIzq=-50;
+				for(Carta c:mano) {
+					c.dibujar(margenIzq, -65, 20, 30);
+					margenIzq += 20;
 				}
 			}
 			
 			
-			
-StdDraw.show
-();
+			StdDraw.show();
 			StdDraw.pause(50);
 		}
 		
@@ -77,4 +93,4 @@ StdDraw.show
 			recienPulsado = false;
 		return false;
 	}
-} 
+}
