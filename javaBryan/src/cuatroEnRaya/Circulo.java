@@ -122,5 +122,13 @@ this.radio
 other.radio
 );
 	}
+	
+	public void dibujar(double x, double y) {
+	    StdDraw.setPenColor(centro.getColor());
+	    StdDraw.filledCircle(x, y, radio);
+	}
+
+
+	
 
 } 
