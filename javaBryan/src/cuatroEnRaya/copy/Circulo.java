@@ -1,4 +1,4 @@
-package cuatroEnRaya;
+package cuatroEnRaya.copy;
 
 import java.awt.Color;
 import java.util.Objects;
@@ -27,7 +27,9 @@ public class Circulo {
 	public void setRadio(double radio) {
 		if (radio<=0)
 			throw new IllegalArgumentException("El radio de un círculo debe ser mayor que 0");
-		this.radio = radio;
+		
+this.radio
+ = radio;
 	}
 	
 	public Punto getCentro() {
@@ -116,7 +118,17 @@ public class Circulo {
 			return false;
 		Circulo other = (Circulo) obj;
 		return Objects.equals(centro, other.centro)
-				&& Double.doubleToLongBits(radio) == Double.doubleToLongBits(other.radio);
+				&& Double.doubleToLongBits(radio) == Double.doubleToLongBits(
+other.radio
+);
+	}
+	
+	public void dibujar(double x, double y) {
+	    StdDraw.setPenColor(centro.getColor());
+	    StdDraw.filledCircle(x, y, radio);
 	}
 
-}
+
+	
+
+} 

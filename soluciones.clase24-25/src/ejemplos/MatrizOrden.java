@@ -8,7 +8,7 @@ import utilidades.Func;
 public class MatrizOrden {
 
 	public static void main(String[] args) {
-		int [][] m= {{1,2},{4,4},{6,7},{9,2}};
+		int [][] m= {{1,2,75},{4,4,22},{6,7,1},{9,2,5}};
 		Func.mostrarMatriz(m);
 		int [][] ord=ordenarPorSumaFilas(m);
 		System.out.println();
@@ -32,6 +32,7 @@ public class MatrizOrden {
 		}
 		//Ordeno lista conforme a suma (ver compareTo en SumaLista)
 		l.sort(null);
+		System.out.println(l);
 		//Creamos matris resultado de la ordenación
 		int [][] res=new int[m.length][m[0].length];
 		

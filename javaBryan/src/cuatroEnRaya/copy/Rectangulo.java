@@ -1,4 +1,4 @@
-package cuatroEnRaya;
+package cuatroEnRaya.copy;
 
 import java.awt.Color;
 import utilidades.StdDraw;
@@ -140,4 +140,6 @@ public class Rectangulo {
 		infDer.mover();
 	}
 	
-}
+} 
+
+

@@ -1,4 +1,4 @@
-package cuatroEnRaya;
+package cuatroEnRaya.copy;
 
 import java.awt.Color;
 import java.util.Objects;
@@ -16,7 +16,9 @@ public class Punto {
 	public Punto(double x, double y) {
 		this.x = x;
 		this.y = y;
-		color=Color.BLACK;
+		
+color=Color.BLACK
+;
 	}
 	
 	public Punto(double x, double y, Color c) {
@@ -122,4 +124,4 @@ public class Punto {
 	
 
 
-}
+} 

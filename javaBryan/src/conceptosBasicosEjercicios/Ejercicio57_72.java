@@ -40,7 +40,7 @@ public class Ejercicio57_72 {
 			frase.substring(0, 4);
 		}else if (len<3) {
 			for (int i = 0; i < frase.length(); i++) {
-				String frellenado=
+				//String frellenado=
 				
 				
 			}
