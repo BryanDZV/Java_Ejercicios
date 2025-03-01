@@ -32,10 +32,10 @@ public class CombinarEjercicio58_73 {
 
 		}
 
-		StringBuilder resultado = new StringBuilder();
+	
 		char frase1Ch = frase1.charAt(0);
 		char frase2Ch = frase2.charAt(frase2.length() - 1);
-		frCombinadas = "" + frase1Ch + frase2Ch;
+		frCombinadas =""+frase1Ch + frase2Ch;
 		return frCombinadas;
 	}
 
