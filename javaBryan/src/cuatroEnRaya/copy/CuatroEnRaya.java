@@ -17,15 +17,29 @@ public class CuatroEnRaya {
 	
 
 	public static void main(String[] args) {
-		long inicio=System.currentTimeMillis();
-		tablero=new Circulo[6][7];
+		
+		/**Reglas esenciales :
+			Punto final = Punto inicial ± Tamaño del segmento
+
+			Si el segmento va hacia la derecha (X aumenta) → se suma .
+			Si el segmento va hacia la izquierda (X disminuye) → se resta .
+			Si el segmento va hacia arriba (Y aumenta) → se suma .
+			Si el segmento va hacia abajo (Y disminuye) → se resta .
+			Punto medio = (PuntoA + PuntoB) / 2
+			Para una diagonal , también puedes usar la misma fórmula:puntoMedio = new Punto((p1.getX() + p2.getX()) / 2, (p1.getY() + p2.getY()) / 2);
+			Se usa para calcular el centro de un segmento , ya sea horizontal, vertical o diagonal.
+			
+			*/
+		long inicio=System.currentTimeMillis();//alamace tiempo, saca el teimepo en milisegundos actual
+		tablero=new Circulo[6][7];//asigo filas y columnas a la matriz atributo del 4 en raya
 		Punto esquinaSupIzq=new Punto(-88,70,Color.BLUE); //Vértice superior izquierdo del tablero
+		//ASIGNO A LA REFERENCIA recTablero un objeto tipo rectagulo
 		recTablero=new Rectangulo(esquinaSupIzq,
-			new Punto(esquinaSupIzq.getX()+tablero[0].length*TAM_CASILLA,
-					esquinaSupIzq.getY()-tablero.length*TAM_CASILLA));
+			new Punto(esquinaSupIzq.getX()+tablero[0].length*TAM_CASILLA,//a la x de supIzq le sumo el número total de columnas de la matriz (7 en este caso tablero[0].length)que sera igual al ancho del tablero.
+					esquinaSupIzq.getY()-tablero.length*TAM_CASILLA));//Se resta el alto total(tablero.length*TAM_CASILLA) del tablero porque la coordinada Y decrece al ir hacia abajo
 		
 		//Establecemos margen de coordenadas
-		StdDraw.setXscale(-100, 100);
+		StdDraw.setXscale(-100, 100); 
 		StdDraw.setYscale(-100, 100);
 		
 		StdDraw.enableDoubleBuffering();
