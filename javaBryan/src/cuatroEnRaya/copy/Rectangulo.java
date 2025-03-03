@@ -89,7 +89,7 @@ public class Rectangulo {
 			StdDraw.filledRectangle(centro().getX(), centro().getY(), base() / 2, altura() / 2);// usa punto central
 																								// para crear el
 																								// rectangulo sino lo
-																								// tngo calculo a partir
+																			// tngo calculo a partir
 																								// del rectangulo q
 																								// tenga
 		} else {
