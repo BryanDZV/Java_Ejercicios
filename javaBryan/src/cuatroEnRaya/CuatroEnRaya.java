@@ -47,6 +47,7 @@ public class CuatroEnRaya {
 				resaltarColumna(colRaton);
 				if (clickRaton()) {
 					introducirFicha(turno, colRaton);
+					System.out.println(hayVictoria());
 					if (hayVictoria()) {
 						finPartida = true;
 					}
@@ -72,17 +73,17 @@ public class CuatroEnRaya {
 
 		// Análisis horizontales
 		for (int i = 0; i < tablero.length; i++) {
-			int cnt = 0; // Por cada fila contamos cooincidencias de color entre fichas adyacentes
+			int cnt = 0;
 			for (int j = 1; j < tablero[0].length; j++) {
 				// Comparamos cada ficha con la de su izquierda (j-1)
 				if (tablero[i][j] != null && tablero[i][j - 1] != null) {
 					if (tablero[i][j].getCentro().getColor().equals(tablero[i][j - 1].getCentro().getColor())) {
 						cnt++;
-						if (cnt == 3) // 3 coincidencias de color consecutivas
+						if (cnt == 3) 
 							return true;
-					} else // Color diferente
+					} else 
 						cnt = 0;
-				} else // Alguna de las 2 fichas a comparar en null (hueco)
+				} else 
 					cnt = 0;
 			}
 		}
