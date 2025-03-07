@@ -39,11 +39,19 @@ public class CrearOrdenacionArticulos {
             System.out.println(a);
         }
         
+        // **Ordenación por DENOMINACION Y SI ES IGUAL PVP descendente (Comparator)**
         tienda.sort(new OrdenacionPorDenominacionYPrecioDesc());
         System.out.println("\n------ Ordenación por denominación y precio descendente ------");
         for (Articulo a : tienda) {
             System.out.println(a);
         }
-
+        
+        /*ordenacion que empiezen por vocal(aeiou)asc y luego consonates(bcd)asc*/
+       // tienda.sort(new OrdenacionPorVocalConsonante);
+        System.out.println("\n------------------ORDENACION POR VOCAL Y CONSONANTES");
+        for (Articulo a : tienda) {
+			System.out.println(a);
+		}
+        
     }
 }
