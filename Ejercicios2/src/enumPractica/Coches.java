@@ -3,6 +3,8 @@ package enumPractica;
 import java.util.ArrayList;
 import java.util.List;
 
+import ordenacion.Articulo;
+
 public class Coches implements Comparable<Coches> {
 	//atributos
 	private String marca;
@@ -61,6 +63,25 @@ public int compareTo(Coches o) {
 	return ordenacion;
 };
 
+/**
+ * ORDENACION INVIERTO EL RETURN -1
+ *  @Override
+    public int compare(Articulo o1, Articulo o2) {
+        // Comparación por denominación alfabéticamente
+        int comparacionNombre = o1.getDenominacion().compareTo(o2.getDenominacion());
+
+        if (comparacionNombre == 0) { // Si tienen el mismo nombre
+            if (o1.getPvp() > o2.getPvp()) {
+                return -1; // Primero el más caro (para orden descendente el -1 invierto)
+            } else if (o1.getPvp() < o2.getPvp()) {
+                return 1;  // Luego el más barato
+            }
+            return 0; // Si tienen el mismo precio, no cambia el orden
+        }
+
+        return comparacionNombre; // Ordenación alfabética por denominación
+    }
+}*/
 
 	//metodo pruebas de la clase
 
