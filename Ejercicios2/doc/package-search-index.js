@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"aleatorios"},{"l":"All Packages","u":"allpackages-index.html"},{"l":"cadenasDeTexto"},{"l":"cuatroEnRaya"},{"l":"ejemplos"},{"l":"excepciones"},{"l":"graficos"},{"l":"matrices"},{"l":"numerosPrimos"},{"l":"objetos"},{"l":"ordenacion"},{"l":"tiempo"},{"l":"utilidades"}];updateSearchResults();

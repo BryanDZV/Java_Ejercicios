@@ -52,6 +52,7 @@ public class CrearOrdenacionArticulos {
         for (Articulo a : tienda) {
 			System.out.println(a);
 		}
+     
         
     }
 }
