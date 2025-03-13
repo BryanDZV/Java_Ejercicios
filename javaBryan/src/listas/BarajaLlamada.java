@@ -7,7 +7,7 @@ public class BarajaLlamada {
 
 	public static void main(String[] args) {
 		
-		List<Carta> baraja=new ArrayList<Carta>();
+		List<Ejercicio6Carta> baraja=new ArrayList<Ejercicio6Carta>();
 
 	}
 
