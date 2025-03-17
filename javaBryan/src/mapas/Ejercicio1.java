@@ -52,9 +52,9 @@ public class Ejercicio1 {
 		m.get(psw);
 		
 		if (m.containsValue(userL)) {
-			if (m.get(psw)==) {
-				
-			}
+//			if (m.get(psw)==) {
+//				
+//			}
 			
 			System.out.println("acceso");
 

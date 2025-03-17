@@ -31,6 +31,37 @@ public class Ejercicio6Carta implements Comparable<Ejercicio6Carta> {
 		this.carta = carta;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(carta, palo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ejercicio6Carta other = (Ejercicio6Carta) obj;
+		return carta == other.carta && palo == other.palo;
+	}
+
+	@Override
+	public String toString() {
+		return "\n" + carta + " de " + palo;
+	}
+
+	@Override
+	public int compareTo(Ejercicio6Carta o) {
+		int orden = this.getCarta().compareTo(o.getCarta());
+		if (orden == 0) { // Si son iguales, comparamos por palo
+			return this.getPalo().compareTo(o.getPalo());
+		}
+		return orden;
+	}
+
 	///
 	public static void main(String[] args) {
 
@@ -84,39 +115,16 @@ public class Ejercicio6Carta implements Comparable<Ejercicio6Carta> {
 		System.out.println("************BARAJA****************");
 		listaBaraja.sort(null);
 		System.out.println(listaBaraja);
+//		for (Ejercicio6Carta elementoBaraja : listaBaraja) {
+//			System.out.print(elementoBaraja);
+//		}
 		System.out.println("************MANO AZAR****************");
 		System.out.println(listaAzar);
+		System.out.println("************CRITERIO PERSONALIZADO****************");
+		listaBaraja.sort(new OrdenamientoPorPaloyCarta());
+		System.out.println(listaBaraja);
+		
 
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(carta, palo);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Ejercicio6Carta other = (Ejercicio6Carta) obj;
-		return carta == other.carta && palo == other.palo;
-	}
-
-	@Override
-	public String toString() {
-		return "\n" + carta + " de " + palo;
-	}
-
-	@Override
-	public int compareTo(Ejercicio6Carta o) {
-		int orden = this.getCarta().compareTo(o.getCarta());
-		if (orden == 0) { // Si son iguales, comparamos por palo
-			return this.getPalo().compareTo(o.getPalo());
-		}
-		return orden;
-	}
 }
