@@ -69,10 +69,11 @@ public class Ejercicio2ConjuntosPorMetodoYDifrencias {
 
 		Set<Integer> set = new HashSet<Integer>();
 
-		String cadena;
+		String cadena=Entrada.cadena();
+	
 
 		do {
-			cadena = Entrada.cadena();
+			//cadena = Entrada.cadena();
 			if (!cadena.equals("")) {
 				try {
 					int numero = Integer.valueOf(cadena);
