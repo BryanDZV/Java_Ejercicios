@@ -11,6 +11,8 @@ public class Ejercicio2 {
 		 * HashMap para almacenar las parejas de palabras. El programa pedirá una
 		 * palabra en español y dará la correspondiente traducción en inglés.
 		 */
+		
+		
 
 	}
 

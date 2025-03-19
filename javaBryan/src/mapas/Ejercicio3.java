@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
+import java.util.Random;
 
 import utilidades.Entrada;
 
-public class Ejercicio2 {
-
+public class Ejercicio3 {
 	public static void main(String[] args) {
+		/*
+		 * Ejercicio 3 Realiza un programa que escoja al azar 5 palabras en español del
+		 * minidiccionario del ejercicio anterior. El programa irá pidiendo que el
+		 * usuario teclee la traducción al inglés de cada una de las palabras y
+		 * comprobará si son correctas. Al final, el programa deberá mostrar cuántas
+		 * respuestas son válidas y cuántas erróneas.
+		 */
 
 		Map<String, String> diccEspIng = new HashMap<String, String>();
 
@@ -48,26 +54,57 @@ public class Ejercicio2 {
 		System.out.println("\n");
 		System.out.println("********LISTA CON FOR EACH********");
 		for (String elemento : diccEspIng.keySet()) {
-			System.out.println(elemento+" "+diccEspIng.get(elemento));
-			
+			System.out.println(elemento + " " + diccEspIng.get(elemento));
+
 		}
 		System.out.println("\n");
 		System.out.println("********LISTA PERSONALIZADA********");
-		
-		List<Pareja> l=new ArrayList<Pareja>();
-		
-		for (String clave : diccEspIng.keySet()) {
-		    String valor = diccEspIng.get(clave);
-		    Pareja nuevaPareja = new Pareja(clave, valor);
 
-		    if (!l.contains(nuevaPareja)) {
-		        l.add(nuevaPareja);
-		    }
+		List<Pareja> l = new ArrayList<Pareja>();
+
+		for (String clave : diccEspIng.keySet()) {
+			String valor = diccEspIng.get(clave);
+			Pareja nuevaPareja = new Pareja(clave, valor);
+
+			if (!l.contains(nuevaPareja)) {
+				l.add(nuevaPareja);
+			}
+		}
+
+		System.out.println(l);
+
+		System.out.println("********LISTA AL AZAR 5 PAREJAS********");
+		
+		List<Pareja> l1= new ArrayList<Pareja>();
+		Random rand=new Random();
+		int azar=rand.nextInt(21);
+		/*String valorAzar=diccEspIng.get();
+		
+		System.out.println(valorAzar);*/
+		//recorro la lista orginal
+		for (String clave : diccEspIng.keySet()) {
+			
+			
 		}
 		
-		System.out.println(l);
+	
 		
-	}//main
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}// main
+	
 	
 
-}//clase
+}
