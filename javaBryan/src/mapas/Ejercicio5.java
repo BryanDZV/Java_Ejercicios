@@ -1,5 +1,7 @@
 package mapas;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.TreeMap;
@@ -16,30 +18,47 @@ public class Ejercicio5 {
 		 * de los 15 números aleatorios podría ser:
 		 */
 		/*
-		 * creo un conjunto mapa hacer 15 secuencias
+		 * 
 		 * 
 		 */
-		Random rand = new Random();
+
 		Map<Integer, Integer> map = new TreeMap<Integer, Integer>();
-		int apariciones = 0;
-		NumerosAleatorios v1 ;
+		Random rand = new Random();
+		
 		for (int i = 0; i < 15; i++) {
-			int claveAzar = rand.nextInt(11);
-			if (!map.containsKey(claveAzar)) {
-				 v1 = new NumerosAleatorios(claveAzar, apariciones);
-				map.put(v1.getClave(), v1.getValor());
-			}else {
-				v1.getValor();
-				
+			int clave = rand.nextInt(11);
+			if (!map.containsKey(clave)) {// no necesito implementar equal ya lo tiene integer
+				map.put(clave, 1);
+
+			} else {
+				map.put(clave, map.get(clave)+1);
 			}
 
 		}
-System.out.println("***DATOS MAPA***");
-for (Integer clave : map.keySet()) {
-	System.out.println("clave: "+clave+" , "+" valor: "+map.get(clave));
-}
 
-System.out.println("***APARICIONES DIFERENTES*****");
+		for (int elemento : map.keySet()) {
+
+			System.out.println("NUM_ALEATORIO\tAPARICIONES");
+			System.out.println(elemento + "\t\t\t" + map.get(elemento));
+		}
+		System.out.println("\n");
+		System.out.print("Numeros Diferentes\t" + map.size());
+		System.out.println("\n");
+		// System.out.println(map.values());
+		List<Pares> l = new ArrayList<Pares>();
+		for (int clave : map.keySet()) {
+			int valor = map.get(clave);
+			//System.out.println(valor);
+			l.add(new Pares(clave, valor));
+
+		}
+		System.out.println("*****ORDEN POR APARICION DESC Y NUMERO ASC SI SON =");
+		l.sort(new OrdenPorAparYNum());
+		for (Pares pares : l) {
+			System.out.println(pares);
+		}
+		
+		
 
 	}// main
 

@@ -42,69 +42,86 @@ public class Ejercicio3 {
 		diccEspIng.put("cacerola", "pan");
 		diccEspIng.put("pastel", "pie");
 		diccEspIng.put("membrillo", "quince");
+		
+		///"**************minidiccionario JAPONES**********"
+		Map<String,String> diccEspJap=new HashMap<String, String>();
+		diccEspJap.put("ordenador", "コンピュータ");  // komputer
+		diccEspJap.put("gato", "猫");  // neko
+		diccEspJap.put("rojo", "赤い");  // akai
+		diccEspJap.put("árbol", "木");  // ki
+		diccEspJap.put("pingüino", "ペンギン");  // pengin
+		diccEspJap.put("sol", "太陽");  // taiyō
+		diccEspJap.put("agua", "水");  // mizu
+		diccEspJap.put("viento", "風");  // kaze
+		diccEspJap.put("siesta", "昼寝");  // hirune
+		diccEspJap.put("arriba", "上");  // ue
+		diccEspJap.put("ratón", "ねずみ");  // mausu
+		diccEspJap.put("estadio", "スタジアム");  // sutajiamu
+		diccEspJap.put("calumnia", "中傷");  // chūshō
+		diccEspJap.put("aguacate", "アボカド");  // abokado
+		diccEspJap.put("cuerpo", "体");  // karada
+		diccEspJap.put("concurso", "コンテスト");  // kontesuto
+		diccEspJap.put("cena", "夕食");  // yūshoku
+		diccEspJap.put("salida", "出口");  // deguchi
+		diccEspJap.put("lenteja", "レンズ豆");  // renzu mame
+		diccEspJap.put("cacerola", "鍋");  // nabe
+		diccEspJap.put("pastel", "パイ");  // pai
+		diccEspJap.put("membrillo", "マルメロ");  // marumero
 
-		System.out.print("Introduzca una palabra en español: ");
-		String palabraIntro = Entrada.cadena();
 
-		if (diccEspIng.containsKey(palabraIntro)) {
-			System.out.println(palabraIntro + " en inglés es " + diccEspIng.get(palabraIntro));
-		} else {
-			System.out.print("La palabra no se encuentra en el diccionario.");
-		}
+//		System.out.print("Introduzca una palabra en español: ");
+//		String palabraIntro = Entrada.cadena();
+//
+//		if (diccEspIng.containsKey(palabraIntro)) {
+//			System.out.println(palabraIntro + " en inglés es " + diccEspIng.get(palabraIntro));
+//		} else {
+//			System.out.print("La palabra no se encuentra en el diccionario.");
+//		}
+//		System.out.println("\n");
+//		System.out.println("********LISTA CON FOR EACH********");
+//		for (String elemento : diccEspIng.keySet()) {
+//			System.out.println(elemento + " " + diccEspIng.get(elemento));
+//
+//		}
 		System.out.println("\n");
-		System.out.println("********LISTA CON FOR EACH********");
-		for (String elemento : diccEspIng.keySet()) {
-			System.out.println(elemento + " " + diccEspIng.get(elemento));
-
-		}
-		System.out.println("\n");
-		System.out.println("********LISTA PERSONALIZADA********");
-
-		List<Pareja> l = new ArrayList<Pareja>();
-
-		for (String clave : diccEspIng.keySet()) {
-			String valor = diccEspIng.get(clave);
-			Pareja nuevaPareja = new Pareja(clave, valor);
-
-			if (!l.contains(nuevaPareja)) {
-				l.add(nuevaPareja);
-			}
-		}
-
+		System.out.println("********LISTA PERSONALIZADA CON SOLO LAS CLAVES********");
+		// LISTA COPIA DE HASHMAP las claves(PARA PODER TRABAJAR CON INDICES)
+		List<String> l = new ArrayList<String>(diccEspJap.keySet());
 		System.out.println(l);
 
-		System.out.println("********LISTA AL AZAR 5 PAREJAS********");
+		System.out.println("****************LISTA PARA GUARDAR LAS 5 PALABRAS AL AZAR**************");
+		// LISTA PARA GUARDAR LAS 5 PALABRAS AL AZAR
+		List<Adivinar> l1 = new ArrayList<Adivinar>();
+		Random rand = new Random();
+		int pregunta=1;
+		String respuesta;
+		int acierto=0;
+		int fallo=0;
+		do {
+			System.out.println("responde con su traduccion pregunta: "+pregunta);
+			int numAzar=rand.nextInt(l.size());
+			String clave=l.get(numAzar);
+			System.out.println(clave);
+			respuesta=Entrada.cadena().trim().toLowerCase();
+			if (diccEspIng.get(clave).equals(respuesta)) {
+				acierto++;
+			}else {fallo++;}
+			pregunta++;
+			String respuestaCorrecta=diccEspIng.get(clave);
+			Adivinar nuevaPareja=new Adivinar(clave,respuesta,respuestaCorrecta);
+			l1.add(nuevaPareja);
+			l.remove(numAzar);
+		} while (l1.size()<5);
 		
-		List<Pareja> l1= new ArrayList<Pareja>();
-		Random rand=new Random();
-		int azar=rand.nextInt(21);
-		/*String valorAzar=diccEspIng.get();
-		
-		System.out.println(valorAzar);*/
-		//recorro la lista orginal
-		for (String clave : diccEspIng.keySet()) {
-			
-			
+		System.out.println("****TUS REPUESTAS****");
+		//System.out.println(l1);
+		for (Adivinar elemento : l1) {
+			System.out.println(elemento);
 		}
+		System.out.println("tus aciertos WELL DONE "+acierto );
+		System.out.println("tus fallos "+fallo);
 		
 	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 	}// main
-	
-	
 
-}
+}// clase

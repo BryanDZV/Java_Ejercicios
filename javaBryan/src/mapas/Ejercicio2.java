@@ -59,13 +59,13 @@ public class Ejercicio2 {
 		for (String clave : diccEspIng.keySet()) {
 		    String valor = diccEspIng.get(clave);
 		    Pareja nuevaPareja = new Pareja(clave, valor);
-
 		    if (!l.contains(nuevaPareja)) {
 		        l.add(nuevaPareja);
 		    }
 		}
 		
 		System.out.println(l);
+		
 		
 	}//main
 	
