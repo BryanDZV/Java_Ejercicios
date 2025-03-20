@@ -45,6 +45,8 @@ public class Ejercicio5 {
 		System.out.print("Numeros Diferentes\t" + map.size());
 		System.out.println("\n");
 		// System.out.println(map.values());
+		
+		//CLASE PARA ORDER POR EL VALOR
 		List<Pares> l = new ArrayList<Pares>();
 		for (int clave : map.keySet()) {
 			int valor = map.get(clave);
