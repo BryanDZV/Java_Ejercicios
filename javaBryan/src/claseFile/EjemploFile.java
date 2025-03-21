@@ -18,6 +18,7 @@ public class EjemploFile {
 		// LISTAR
 		System.out.println("introduzca una ruta de dictorio");
 		// ruta prueba C:\Users\bryan\Desktop
+		//C:\Users\bryan\Desktop\labsuser.pem
 		String ruta1;
 
 		File[] contenido;
@@ -36,11 +37,17 @@ public class EjemploFile {
 					}
 
 				}
-
+				salidaExitosa = true;
+			}else {
+				if (f1.exists() && !f1.isDirectory()) {
+					System.out.println("la ruta existe pero no es un directorio");
+				}else {System.out.println(" NO existe la ruta");}
+				
+				
 			}
-			salidaExitosa=true;
+			
 		} while (!salidaExitosa);
-		
+
 		System.out.println("FIN");
 
 	}// main
