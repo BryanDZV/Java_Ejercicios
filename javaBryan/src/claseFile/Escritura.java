@@ -36,7 +36,7 @@ public class Escritura {
 		boolean salida=false;
 		System.out.println("cantidad de numeros");
 		int datos=Entrada.entero();
-		while () {
+		while (salida) {
 			int aleatorios=rand.nextInt(10000);
 			er.println(aleatorios);
 		
