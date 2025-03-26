@@ -15,7 +15,7 @@ public class Ejercicio3 {
 
 	public static void main(String[] args) throws IOException {
 		File f = new File(
-				"I:\\Otros ordenadores\\Mi portátil hp\\ies grado superior\\programacion\\3EVAPROGRAMACION\\pruebasFicheros\\pruebaProg.csv");
+				"C:\\Users\\bryan\\Desktop\\ies grado superior\\programacion\\3EVAPROGRAMACION\\pruebasFicheros\\pruebaProg.csv");
 		BufferedReader bfr = new BufferedReader(new FileReader(f));
 		String linea = bfr.readLine();
 		do {
