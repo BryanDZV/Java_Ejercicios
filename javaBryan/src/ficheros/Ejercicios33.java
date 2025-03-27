@@ -10,11 +10,14 @@ public class Ejercicios33 {
         PrintWriter pw=new PrintWriter(new FileWriter(rutaArchivo));
        
             for (int i = 1; i <= 1000; i++) {
+            	
             	pw.print(i+";");
             	
             	if (i%10==0) {//cosas ciclicas %
             		pw.println();
-					
+            		//lectura linea
+				
+            		
 				}
             }//for
             pw.close(); // IMPORTANTE: cerrar el PrintWriter para que escriba todo en el archivo
