@@ -21,7 +21,7 @@ public class Ejercicios2 {
 	 */
 
 	public static void main(String[] args) throws IOException {
-		File f = new File("src\\ficherosPractica\\prueba");
+		File f = new File("src\\ficherosPractica\\pruebdasa");
 		/* comprobacion */
 		if (!f.exists()) {
 			System.out.println("la ruta no existe");
@@ -33,41 +33,71 @@ public class Ejercicios2 {
 
 		Map<String, Integer> m = new TreeMap<String, Integer>();
 		m = estadisticaPalabras(f);
-		System.out.println("********por orden alfabetico treemap****");
+		System.out.println("********por orden alfabetico Palabras****");
 		for (String elemento : m.keySet()) {
-			// System.out.println(elemento + "\t" + m.get(elemento));
+			 System.out.println(elemento + "\t" + m.get(elemento));
 		}
-		System.out.println("********por orden aparicion****");
+		System.out.println("********por orden aparicion Palabras****");
 		List<Pareja> l = new ArrayList<Pareja>();
-		l = nuevaPareja(m);
+		l = listaPalabras(m);
 		l.sort(new ordenamientoAparicion());
 		for (Pareja elemento : l) {
-			// System.out.println(elemento);
+			System.out.println(elemento);
 		}
-		System.out.println("********por orden alfabetico LETRAS****");
+		System.out.println("=== Letras por orden alfabético ===");
 		/* letras */
 		m = estadisticaLetras(m);
 		// calcula total de letras
-				int totalLetras = 0;
-				for (String elemento : m.keySet()) {
-					for (int i = 0; i < elemento.length(); i++) {
-						totalLetras += m.get(elemento);// por cada letra sumo el valor previo que tenia
-					}
-				}
-				System.out.println(m);
-				System.out.println(totalLetras);
-		System.out.println("=== Letras por orden alfabético ===");
+		int totalLetras = 0;
+		for (String elemento : m.keySet()) {
+			for (int i = 0; i < elemento.length(); i++) {
+				totalLetras += m.get(elemento);// por cada letra sumo el valor previo que tenia
+			}
+		}
+		//System.out.println(m);
+		//System.out.println(totalLetras);
 		for (String elemento : m.keySet()) {
 			// System.out.println(elemento + "\t" + m.get(elemento));
 			double porcentaje = (double) m.get(elemento) * 100 / totalLetras;
-			System.out.printf("%s %.2f%%\n", elemento, porcentaje);
+			System.out.printf("%s\t%.2f%%\n", elemento, porcentaje);
+
 		}
+		
+		System.out.println("=== Letras por orden de Aparicion ===");
+		l=listaLetras(m);
+		l.sort(new letrasAparicion());
+		for (Pareja elemento : l) {
+			System.out.printf("%s\t%.2f%%\n", elemento.getClave(), elemento.getAparicionLetra());
+
+		}
+		
+		
+		
 	}// main
+
+	private static List<Pareja> listaLetras(Map<String, Integer> mapa) {
+		List<Pareja>l=new ArrayList<Pareja>();
+		int totalLetras=0;
+			for (String elemento: mapa.keySet()) {
+				for (int i = 0; i < elemento.length(); i++) {
+					totalLetras+=mapa.get(elemento);
+					//System.out.println(totalLetras);
+				}
+			}
+		
+		for (String elemento : mapa.keySet()) {
+			//System.out.println(elemento+"\t"+mapa.get(elemento));
+			int cntPrevio=mapa.get(elemento);
+			double porcentaje = (cntPrevio * 100.0 )/ totalLetras;
+			//System.out.println(porcentaje);
+			l.add(new Pareja(elemento, porcentaje));
+		}
+		
+		return l;
+	}
 
 	private static Map<String, Integer> estadisticaLetras(Map<String, Integer> mapa) {
 		Map<String, Integer> m = new TreeMap<String, Integer>();
-
-		
 
 		for (String elemento : mapa.keySet()) {
 			int cntPrevio = mapa.get(elemento);
@@ -84,7 +114,7 @@ public class Ejercicios2 {
 		return m;
 	}// metodoLetras
 
-	private static List<Pareja> nuevaPareja(Map<String, Integer> m) {
+	private static List<Pareja> listaPalabras(Map<String, Integer> m) {
 		List<Pareja> l = new ArrayList<Pareja>();
 		for (String elemento : m.keySet()) {
 			l.add(new Pareja(elemento, m.get(elemento)));
