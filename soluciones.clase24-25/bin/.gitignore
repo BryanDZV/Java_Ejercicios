@@ -3,7 +3,10 @@
 /cuatroEnRaya/
 /ejemplos/
 /excepciones/
+<<<<<<< HEAD
 /ficheros/
+=======
+>>>>>>> refs/remotes/origin/master
 /graficos/
 /matrices/
 /numerosPrimos/
