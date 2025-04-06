@@ -40,7 +40,7 @@ public class CrearOrdenarAriculos {
 		tienda.sort(new OrdenacionPorDenominacionPrecioDesc());
 		for(Articulo a:tienda)
 			System.out.println(a);
-		System.out.println("\n=== Orden por Inicial del código, primero vovales después consonantes: Comparator");
+		System.out.println("\n=== Orden por inicial del código, primero vovales después consonantes: Comparator");
 		tienda.sort(new OrdenacionPorCodigoVocalConsonante());
 		for(Articulo a:tienda)
 			System.out.println(a);

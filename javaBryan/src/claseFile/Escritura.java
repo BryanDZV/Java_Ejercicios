@@ -17,13 +17,23 @@ public class Escritura {
 		 * numeros
 		 */
 		// seleccionar Ruta de destino
-		File ruta = new File("./src/claseFile/datos");// si existe al sobreescrib sino la crea
+		File ruta = new File("\\src\\ficheros\\coche.csv");// si existe al sobreescrib sino la crea
 		// apertura de Ruta àra escribir
-		PrintWriter pw = new PrintWriter(new FileWriter(ruta, true));// con true añado mas lineas al final sin borrar el
+		PrintWriter pw = new PrintWriter(new FileWriter(ruta));// con true añado mas lineas al final sin borrar el
 																		// contenido
 		// escritura
 
-		pw.println("nñoki");
+		pw.println("Marca   Precio   Matrícula\r\n"
+				+ "Ford    1400     2311LLN\r\n"
+				+ "Ford    1400     2628HZV\r\n"
+				+ "Ford    1400     9792ZNM\r\n"
+				+ "Renault 2500     1234KJK\r\n"
+				+ "Renault 2500     9016QFD\r\n"
+				+ "Renault 4200     1448JZC\r\n"
+				+ "Seat    1230     7389PTH\r\n"
+				+ "Seat    3000     9381YBT\r\n"
+				+ "Volvo   3000     5169BXP\r\n"
+				+ "");
 		// cierre
 		pw.close();
 
