@@ -1,7 +1,27 @@
 package herencia;
 
+import java.util.Objects;
+
 public class Persona {
-    // Atributos privados
+    @Override
+	public int hashCode() {
+		return Objects.hash(edad, nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		/*preguntas tipo test muchas objetos clases herencias*/
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return edad == other.edad && Objects.equals(nombre, other.nombre);
+	}
+
+	// Atributos privados
     private String nombre;
     private int edad;
 
@@ -12,7 +32,6 @@ public class Persona {
     }
 
     @Override
-    //modifica el comportamiento del to sTring (personalizar)
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", edad=" + edad + "]";
 	}
