@@ -1,10 +1,6 @@
 package herencia;
 
 public class Estudiante extends Persona {
-	/*upcasting no necesito hacer cast mirar/downcasting necesito cast explicito*/
-	/*getClass
-	 * instance of los dos para deteerminar que tipos*/
-	/*en OBJETOS dowcasting no esta permitida pero puedo castear el upcasting si vale*/
     // Atributo propio
     private String curso;
 

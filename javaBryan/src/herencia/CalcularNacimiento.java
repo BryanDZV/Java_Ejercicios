@@ -37,7 +37,7 @@ public class CalcularNacimiento {
         //System.out.println(fechaActual);
         long diferenciaMilis = fechaActual.getTime() - fechaD.getTime();
 
-        // 1000 milisegundos * 60 seg * 60 min * 24 h * 365.25 días (promedio con años bisiestos)
+        // 1000 milisegundos * 60 seg * 60 min * 24 h * 365.25 días 
         long milisPorAnio = (long)(1000L * 60 * 60 * 24 * 365.25);
         int edad = (int)(diferenciaMilis / milisPorAnio);
 
