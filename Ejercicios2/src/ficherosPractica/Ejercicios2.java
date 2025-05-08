@@ -21,7 +21,7 @@ public class Ejercicios2 {
 	 */
 
 	public static void main(String[] args) throws IOException {
-		File f = new File("src\\ficherosPractica\\pruebdasa");
+		File f = new File("src\\ficherosPractica\\prueba");
 		/* comprobacion */
 		if (!f.exists()) {
 			System.out.println("la ruta no existe");
@@ -35,7 +35,7 @@ public class Ejercicios2 {
 		m = estadisticaPalabras(f);
 		System.out.println("********por orden alfabetico Palabras****");
 		for (String elemento : m.keySet()) {
-			 System.out.println(elemento + "\t" + m.get(elemento));
+			System.out.println(elemento + "\t" + m.get(elemento));
 		}
 		System.out.println("********por orden aparicion Palabras****");
 		List<Pareja> l = new ArrayList<Pareja>();
@@ -54,45 +54,50 @@ public class Ejercicios2 {
 				totalLetras += m.get(elemento);// por cada letra sumo el valor previo que tenia
 			}
 		}
-		//System.out.println(m);
-		//System.out.println(totalLetras);
+		// System.out.println(m);
+		// System.out.println(totalLetras);
 		for (String elemento : m.keySet()) {
 			// System.out.println(elemento + "\t" + m.get(elemento));
 			double porcentaje = (double) m.get(elemento) * 100 / totalLetras;
 			System.out.printf("%s\t%.2f%%\n", elemento, porcentaje);
-
+			/*
+			 * Parte | Significado
+			 *  %s | Imprime una cadena (String) — en este caso, elemento
+			 * \t | Tabulador — espacio horizontal grande, como en una tabla 
+			 * %.2f | Número decimal con 2 decimales — en este caso, 
+			 * porcentaje %% | Imprime el símbolo % tienes que duplicarlo porque % solo ya se usa como marcador 
+			 * \n | Salto de línea (como Enter)
+			 */
 		}
-		
+
 		System.out.println("=== Letras por orden de Aparicion ===");
-		l=listaLetras(m);
+		l = listaLetras(m);
 		l.sort(new letrasAparicion());
 		for (Pareja elemento : l) {
 			System.out.printf("%s\t%.2f%%\n", elemento.getClave(), elemento.getAparicionLetra());
 
 		}
-		
-		
-		
+
 	}// main
 
 	private static List<Pareja> listaLetras(Map<String, Integer> mapa) {
-		List<Pareja>l=new ArrayList<Pareja>();
-		int totalLetras=0;
-			for (String elemento: mapa.keySet()) {
-				for (int i = 0; i < elemento.length(); i++) {
-					totalLetras+=mapa.get(elemento);
-					//System.out.println(totalLetras);
-				}
-			}
-		
+		List<Pareja> l = new ArrayList<Pareja>();
+		int totalLetras = 0;
 		for (String elemento : mapa.keySet()) {
-			//System.out.println(elemento+"\t"+mapa.get(elemento));
-			int cntPrevio=mapa.get(elemento);
-			double porcentaje = (cntPrevio * 100.0 )/ totalLetras;
-			//System.out.println(porcentaje);
+			for (int i = 0; i < elemento.length(); i++) {
+				totalLetras += mapa.get(elemento);
+				System.out.println("***************"+totalLetras);
+			}
+		}
+
+		for (String elemento : mapa.keySet()) {
+			// System.out.println(elemento+"\t"+mapa.get(elemento));
+			int cntPrevio = mapa.get(elemento);
+			double porcentaje = (cntPrevio * 100.0) / totalLetras;
+			// System.out.println(porcentaje);
 			l.add(new Pareja(elemento, porcentaje));
 		}
-		
+
 		return l;
 	}
 
