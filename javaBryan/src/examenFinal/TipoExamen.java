@@ -17,11 +17,14 @@ import java.util.List;
 import utilidades.Entrada;
 
 public class TipoExamen {
+	//recursos 
+			static Connection cn = null;
+			static Statement st = null; //a nivel de calse utilizable en todo
 
 	public static void main(String[] args) {
 //recursos 
-		Connection cn = null;
-		Statement st = null;
+		//Connection cn = null;
+		//Statement st = null;
 		try {
 			// datos
 			String ruta = "./src/examenFinal/datos.init";
@@ -61,15 +64,14 @@ public class TipoExamen {
 			int opcion;
 			do {
 				System.out.println(
-						"1.crear tabla y cargar datos desde datos.csv \n1.crear tabla y cargar datos desde datos.csv\n3. guardar fichero\n 0. salir");
+						"1.crear tabla y cargar datos desde datos.csv\n2.crear tabla y cargar datos desde datos.csv\n3. guardar fichero\n 0. salir");
 				opcion = Entrada.entero();
 				switch (opcion) {
 				case 1: {
 					if (crearTabla(cn, st)) {
 						System.out.println("pasando a cargar datos desde datos.init");
 						cargarDatos(cn, st);
-					}
-					;
+					};
 
 				}
 				case 2: {
@@ -132,7 +134,7 @@ public class TipoExamen {
 		st = null;
 		ResultSet rs = null;
 		try {
-			String ruta = "./src/examenFinal/datos.csv";
+			String ruta = "/javaBryan/src/examenFinal/datos.csv";
 			File datos = new File(ruta);
 			BufferedReader bfr = new BufferedReader(new FileReader(datos));
 			String linea = bfr.readLine(); // salta cabecera
@@ -189,7 +191,8 @@ public class TipoExamen {
 			}
 
 		} catch (FileNotFoundException e) {
-			System.out.println("fallo al cargar datos ruta no entrada");
+			System.out.println("fallo al cargar datos ruta no entrada..saliendo");
+			return;
 		} catch (IOException e) {
 			System.out.println("error en la lectura");
 			e.printStackTrace();
