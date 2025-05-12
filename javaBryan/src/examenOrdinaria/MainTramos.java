@@ -1,11 +1,12 @@
 package examenOrdinaria;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import utilidades.Entrada;
 
-public class RutasEntrega {
+public class MainTramos {
 
 	public static void main(String[] args) {
 		List<Integer> l = new ArrayList<Integer>();
@@ -36,16 +37,38 @@ public class RutasEntrega {
 				System.out.println("Debe ser mayor que el anterior.");
 			}
 		}
-		
-		List<Tramos>lTramos=new ArrayList<Tramos>();
-		
-		for (int i = 0; i < l.size(); i++) {
-			if (condition) {
-				
-			}
-			lTramos.add(new Tramos(l.get(i), l.get(i+1)));
-		}
-		
 
+		List<Tramos> lTramos = new ArrayList<Tramos>();
+
+		// Recorre hasta el penúltimo índice
+
+		for (int i = 0; i < l.size() - 1; i++) {
+			int inicio = l.get(i);
+			int fin = l.get(i + 1);
+			lTramos.add(new Tramos(inicio, fin));
+
+		}
+
+		// Muestra los tramos
+		for (Tramos t : lTramos) {
+			int cnt = 0;
+			System.out.println("pk" + cnt + t.getPunto1() + " : " + t.getPunto2());
+			cnt++;
+
+		}
+
+		// lista asc
+
+		System.out.println("ORDEANO POR TRAMOS ASCEDENTE");
+		lTramos.sort(null);
+		for (Tramos tramos : lTramos) {
+			System.out.println(tramos);
+		}
+
+		System.out.println("ORDENADO POR TRAMOS DESCEDENTE");
+		lTramos.sort(new ordenDescendete());
+		for (Tramos tramos : lTramos) {
+			System.out.println(tramos);
+		}
 	}// main
 }// clas
