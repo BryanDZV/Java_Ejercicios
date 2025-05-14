@@ -12,6 +12,14 @@ public class Alturas implements Comparable<Alturas> {
 		this.distancia = calcularAlturas(altura1, altura2);
 	}
 
+	public int getDistancia() {
+		return distancia;
+	}
+
+	public void setDistancia(int distancia) {
+		this.distancia = distancia;
+	}
+
 	public int getAltura1() {
 		return altura1;
 	}

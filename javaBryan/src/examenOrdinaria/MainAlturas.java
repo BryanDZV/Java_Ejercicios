@@ -27,13 +27,17 @@ public class MainAlturas {
 			}
 
 		}
-		System.out.println("lista ordena por temperatura de ASC");
+		System.out.println("lista ordena por distancia de ASC");
 		l.sort(null);
 		for (Alturas alturas : l) {
 			System.out.println(alturas);
 		}
 		
-		System.out.println("lista ordena por temperatura de DESC");
+		System.out.println("lista ordena por distancia de DESC");
+		l.sort(new porOrdenDesc());
+		for (Alturas alturas : l) {
+			System.out.println(alturas);
+		}
 	
 	}// m
 
