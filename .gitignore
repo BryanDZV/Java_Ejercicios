@@ -1,1 +1,15 @@
 /.metadata/
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Build output
+bin/
+
+# Archivos de configuración
+CFG.INI
+
+# Dependencias
+*.jar
+*.exe
