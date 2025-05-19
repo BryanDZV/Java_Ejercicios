@@ -9,17 +9,18 @@ public class ExtraccionCaracter {
 
 		System.out.println("intrudcir una palabra");
 		String pal=Entrada.cadena().toUpperCase();
-		
+		char [] arrayChar= new char [pal.length()];
+		int cnt=0;
 		for (int i = 0; i < pal.length(); i++) {
-			System.out.print(pal.charAt(i));
-			
+			//System.out.print(pal.charAt(i));
+			arrayChar[cnt]=pal.charAt(i);
+			cnt++;
+		
 		}
 		
-		//if (pal.charAt(i)-1.equals.a) {
-			
-		//} else {
-
-		//}
+	for (char c : arrayChar) {
+		System.out.println("soy array"+c);
+	}
 		
 		
 	}

@@ -2,7 +2,7 @@ package aleatorios;
 
 import utilidades.Entrada;
 
-public class Ej19 {
+public class SalirParaTerminar {
 
 	public static void main(String args[]) {
 		int negativos;
