@@ -1,4 +1,4 @@
-package colecionesTipoExamen;
+package colecionesTipoExamenOrdinaria;
 
 import java.util.ArrayList;
 import java.util.HashMap;

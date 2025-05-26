@@ -1,4 +1,4 @@
-package colecionesTipoExamen;
+package colecionesTipoExamenOrdinaria;
 
 public class Articulo implements Comparable<Articulo> {
 	private String codigo;
