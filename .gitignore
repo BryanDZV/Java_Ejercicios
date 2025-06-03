@@ -1,15 +1,47 @@
-/.metadata/
-# Eclipse
-.classpath
-.project
-.settings/
+# -----------------------------------------
+# Ignorar solo archivos y carpetas redundantes
+# (clases compiladas, binarios, artefactos de build,
+#  archivos temporales de sistema, logs, etc.)
+# -----------------------------------------
 
-# Build output
-bin/
+# 1) Carpetas de salida / compilación
+**/bin/
+**/build/
+**/target/
 
-# Archivos de configuración
-CFG.INI
+# 2) Clases compiladas
+**/*.class
 
-# Dependencias
+# 3) Dependencias empaquetadas (si las obtienes vía Maven/Gradle o las reconstruyes)
+#    Si en tu proyecto almacenas JARs “propios” en un directorio (p. ej. lib/),
+#    y quieres subirlos, elimina o comenta esta línea:
 *.jar
-*.exe
+*.war
+*.ear
+
+# 4) Archivos de configuración generados por Eclipse que pueden regenerarse
+#    (Si prefieres subir tu .classpath y .settings para compartir la configuración,
+#    comenta o elimina estas líneas)
+#.classpath
+#.settings/
+
+# 5) Archivos temporales, logs y copias de seguridad
+*.log
+*.tmp
+*.bak
+*~
+
+# 6) Archivos temporales del sistema operativo
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# 7) Otros artefactos de build (por ejemplo, archivos generados por Gradle/Maven)
+.gradle/
+.idea/
+*.iml
+
+# 8) Archivos de metadatos de IDE, si no quieres compartirlos
+#    (comenta estas líneas si prefieres subir tu configuración completa)
+# /.metadata/
