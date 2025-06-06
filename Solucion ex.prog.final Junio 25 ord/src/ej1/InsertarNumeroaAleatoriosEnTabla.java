@@ -35,7 +35,7 @@ public class InsertarNumeroaAleatoriosEnTabla {
 				String crearTabla = "CREATE TABLE IF NOT EXISTS " + nombretabla + " (aleatorio INT PRIMARY KEY)";
 				st = conn.createStatement();
 				st.executeUpdate(crearTabla);
-				System.out.println("Tabla '" + nombretabla + "creada.");
+				System.out.println("Tabla '" + nombretabla + " creada.");
 
 				// Vaciar tabla
 				st.executeUpdate("DELETE FROM " + nombretabla);
