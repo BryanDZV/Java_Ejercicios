@@ -13,8 +13,7 @@ public class PruebaMySQLPreparedStatement {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection cn=conectarMySQL("172.16.55.55","programacion","daw1","halloween");
-		//aquii con el apache "localhost","test","root",""
+		Connection cn=conectarMySQL("localhost","test","root","");
 		System.out.println("Conectado a MySQL.");
 		
 		Statement st=cn.createStatement();
