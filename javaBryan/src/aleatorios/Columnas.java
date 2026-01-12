@@ -19,7 +19,7 @@ public class Columnas {
 //			//cada iteracion dibuja*
 //			System.out.print("*"+" ");
 //		
-//		}
+//	//	}
 		
 //		for (int i = 0; i < aC; i++) {
 //			System.out.println("*");
